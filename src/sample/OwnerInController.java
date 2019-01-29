@@ -22,7 +22,9 @@ public class OwnerInController implements Initializable {
     @FXML public ComboBox<String> type,unit_type;
     @FXML public ComboBox<String> name;
     @FXML public TextField quantity,unit_price;
+    @FXML
     private Button updateButton,nextpagebutton,OrderCheckButton;
+    @FXML
     private Label FootLabel;
 
     public static ArrayList<product> item=new ArrayList<>();

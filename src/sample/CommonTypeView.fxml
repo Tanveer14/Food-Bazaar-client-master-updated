@@ -100,9 +100,6 @@
          </BorderPane.margin>
       </VBox>
    </center>
-   <left>
-      <TreeView fx:id="FoodTree" onMouseClicked="#TreeViewClicked" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </left>
    <right>
       <VBox prefHeight="600.0" prefWidth="280.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
@@ -170,4 +167,11 @@
          </padding>
       </VBox>
    </right>
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TreeView fx:id="FoodTree" onMouseClicked="#TreeViewClicked" prefHeight="600.0" prefWidth="200.0" />
+         </children>
+      </AnchorPane>
+   </left>
 </BorderPane>

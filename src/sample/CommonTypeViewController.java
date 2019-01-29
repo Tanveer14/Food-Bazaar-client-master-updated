@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.VBox;
 import javafx.util.converter.DoubleStringConverter;
 
@@ -51,7 +52,6 @@ public class CommonTypeViewController implements Initializable {
 
     public void ConfirmButtonClicked(ActionEvent e) throws IOException {
         Currentpage=caption.getText();
-
         product demoproduct;
         for(int i=0;i<FoodTable.getItems().size();i++){
             demoproduct=FoodTable.getItems().get(i);
@@ -59,6 +59,7 @@ public class CommonTypeViewController implements Initializable {
             System.out.println(TableProductList.get(i));
         }
         FoodTable.getItems().clear();
+        totalPrice=0;
 
         Parent newsceneparent= FXMLLoader.load(getClass().getResource("LogInPage.fxml"));
         Common.ButtonClicked(e,newsceneparent);
@@ -151,6 +152,15 @@ public class CommonTypeViewController implements Initializable {
         productList.get(index).setPrice(newPrice);
         FoodTable.getItems().clear();
         FoodTable.getItems().addAll(productList);
+
+        totalPrice=0;
+        for (product p:productList
+             ) {
+            totalPrice+=p.getPrice();
+
+        }
+        TotalPriceValue.setText(String.valueOf(totalPrice));
+        productList.clear();
 
 
 
@@ -328,6 +338,9 @@ public class CommonTypeViewController implements Initializable {
         }catch(Exception e){
             System.out.println(e);
         }
+
+
+
 
     }
 }
