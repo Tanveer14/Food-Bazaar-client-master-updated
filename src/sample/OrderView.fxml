@@ -20,7 +20,9 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button fx:id="DoneButton" layoutX="46.0" layoutY="539.0" mnemonicParsing="false" onAction="#DoneButtonClicked" text="Done" />
+      <Button fx:id="DoneButton" layoutX="620.0" layoutY="539.0" mnemonicParsing="false" onAction="#DoneButtonClicked" text="Done" />
       <Button fx:id="NextOrderButton" layoutX="680.0" layoutY="539.0" mnemonicParsing="false" onAction="#NextOrderButtonClicked" text="Next Order" />
+      <Button fx:id="PreviousOrderButton" layoutX="39.0" layoutY="539.0" mnemonicParsing="false" onAction="#PreviousOrderButtonClicked" text="Next Order" />
+      <Button fx:id="GoBackButton" layoutX="51.0" layoutY="42.0" mnemonicParsing="false" onAction="#GoBackButtonClicked" text="Go Back" />
    </children>
 </AnchorPane>
