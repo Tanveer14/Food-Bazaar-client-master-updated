@@ -45,7 +45,7 @@ public class OrderViewController implements Initializable {
             ObjectInputStream oinfromServer=new ObjectInputStream(socket.getInputStream());
             outtoServer.writeObject("Show Orders");
            OrderList= (ArrayList<Customer>) oinfromServer.readObject();
-            System.out.println(OrderList);
+            System.out.println(OrderList.get(0).toString());
             OrderLabel.setText(OrderList.get(0).toString());
             socket.close();
         } catch (IOException e) {
