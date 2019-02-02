@@ -59,8 +59,6 @@ public class CommonTypeViewController implements Initializable {
             System.out.println(TableProductList.get(i));
         }
         FoodTable.getItems().clear();
-        totalPrice=0;
-
         Parent newsceneparent= FXMLLoader.load(getClass().getResource("LogInPage.fxml"));
         Common.ButtonClicked(e,newsceneparent);
     }
@@ -140,6 +138,8 @@ public class CommonTypeViewController implements Initializable {
         productList.addAll(FoodTable.getItems());
         double oldUnit=e.getOldValue();
         double newUnit=e.getNewValue();
+        if(newUnit<=0)newUnit=1;
+        else if(newUnit>=5)newUnit=5;
         double oldPrice=FoodTable.getSelectionModel().getSelectedItem().getPrice();
         double newPrice=oldPrice/oldUnit*newUnit;
         FoodTable.getItems().get(e.getTablePosition().getRow()).setUnit(newUnit);
@@ -161,10 +161,6 @@ public class CommonTypeViewController implements Initializable {
         }
         TotalPriceValue.setText(String.valueOf(totalPrice));
         productList.clear();
-
-
-
-
 
     }
 
@@ -285,13 +281,26 @@ public class CommonTypeViewController implements Initializable {
         treeview.setRoot(foods);
         ArrayList<TreeItem<String>>treeItems=new ArrayList<>();
 
-        FileInputStream fin=new FileInputStream("type list");
-        ObjectInputStream oin=new ObjectInputStream(fin);
-        ArrayList<String> temp=new ArrayList<>();
-        temp= (ArrayList<String>) oin.readObject();
+       /*FileInputStream fin=new FileInputStream("type list");
+        ObjectInputStream oin=new ObjectInputStream(fin);*/
+
+
+        ArrayList<String> types=new ArrayList<>();
+        try{
+            socket=new Socket("localhost",4444);
+            ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream oi=new ObjectInputStream(socket.getInputStream());
+            String s="type list";
+            outtoServer.writeObject(s);
+            types = (ArrayList<String>) oi.readObject();
+
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+
         int i=0;
         while (true){
-            String itemtext=temp.get(i);
+            String itemtext=types.get(i);
             treeItems.add(new TreeItem<>(itemtext));
             i++;
             if(i>itemtext.length())break;
@@ -316,7 +325,7 @@ public class CommonTypeViewController implements Initializable {
         FoodTable.setEditable(true);
         UnitColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         PriceColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-
+        totalPrice=0;
 
         ArrayList<String> choice=Common.choices();
         Unit1.getItems().addAll(choice);

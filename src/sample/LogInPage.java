@@ -43,10 +43,42 @@ public class LogInPage implements Initializable{
         Common.ButtonClicked(event,subPage);
     }
 
+    public boolean CheckAChar(String str,char c)
+    {
+        char []arr=str.toCharArray();
+        for (char a:arr
+             ) {
+            if(a==c)return true;
+        }
+        return false;
+    }
     public void OrderButtonClicked (ActionEvent e) throws Exception {
+        String tempc="";
         customer.setName(CustomerName.getText());
-        customer.setMail(CustomerMail.getText());
-        customer.setContactNo(CustomerPhone.getText());
+
+        tempc=CustomerMail.getText();
+        if(tempc.toLowerCase().equals(tempc)&&CheckAChar(tempc,'@')){
+            customer.setMail(tempc);
+        }else {
+            Labelcheck.setText("Invalid Email Address or  Contact No");
+        }
+        boolean state1=true,state2=true,state3=true,state4=true;
+/*
+        tempc=CustomerPhone.getText();
+        if(!(tempc.length()==11||tempc.length()==9))state1=false;
+        char []digits={'0','1','2','3','4','5','6','7','8','9'};
+        for (char c:digits
+             ) {
+          state2= CheckAChar(tempc,c);
+          if (state2==false)break;
+        }*/
+       if(state1&&state2)
+       {
+           customer.setContactNo(tempc);
+       }else {
+           Labelcheck.setText("Invalid Email Address or  Contact No");
+       }
+
         customer.setAddress(CustomerAddress.getText());
         customer.setProductList(CommonTypeViewController.TableProductList);
         customer.setTotalPrice(CommonTypeViewController.totalPrice);
@@ -93,12 +125,12 @@ public class LogInPage implements Initializable{
 
             //before it... everything must be stored into binary file
 
-            File customerFile = new File("Customer Details" + customercount + ".txt");
+            /*File customerFile = new File("Customer Details" + customercount + ".txt");
             FileOutputStream fOutput = new FileOutputStream(customerFile);
             ObjectOutputStream oOutput = new ObjectOutputStream(fOutput);
             oOutput.writeObject(customer);
             fOutput.close();
-            oOutput.close();
+            oOutput.close();*/
             FileWriter fw=new FileWriter("Idcount.txt");
             //fw.write(String.valueOf(customercount));
             fw.write(String.valueOf(customercount));

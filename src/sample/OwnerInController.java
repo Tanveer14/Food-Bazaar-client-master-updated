@@ -22,10 +22,8 @@ public class OwnerInController implements Initializable {
     @FXML public ComboBox<String> type,unit_type;
     @FXML public ComboBox<String> name;
     @FXML public TextField quantity,unit_price;
-    @FXML
-    private Button updateButton,nextpagebutton,OrderCheckButton;
-    @FXML
-    private Label FootLabel;
+    @FXML private Button updateButton,nextpagebutton,OrderCheckButton;
+    @FXML private Label FootLabel;
 
     public static ArrayList<product> item=new ArrayList<>();
 
@@ -79,8 +77,16 @@ public class OwnerInController implements Initializable {
         try{
             String s=type.getSelectionModel().getSelectedItem();
             if(s!=null) {
-                File file = new File(s.toLowerCase() + ".txt");
-                item = Common.ownerFileInput(file);
+                try{
+                    socket=new Socket("localhost",4444);
+                    ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
+                    ObjectInputStream oi=new ObjectInputStream(socket.getInputStream());
+                    outtoServer.writeObject(s);
+                    item=(ArrayList<product>)oi.readObject();
+
+                }catch(Exception e){
+                    System.out.println(e);
+                }
                 name.getItems().clear();
 
                 for (product i : item) {
@@ -91,9 +97,8 @@ public class OwnerInController implements Initializable {
             System.out.println(ex);
         }
         name.setDisable(false);
-
-
     }
+
 
     public void updateButtonClicked() throws IOException {
         try{
@@ -113,7 +118,15 @@ public class OwnerInController implements Initializable {
                 item.add(new product(t,s,Integer.parseInt(unit_price.getText()),
                         Integer.parseInt(quantity.getText()),unit_type.getSelectionModel().getSelectedItem()));
             }
-            Common.fileupdate(new File(s.toLowerCase()+".txt"),item);
+            try{
+                socket=new Socket("localhost",4444);
+                ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
+                //ObjectInputStream oi=new ObjectInputStream(socket.getInputStream());
+                outtoServer.writeObject(item);
+            }catch(Exception ex){
+                System.out.println(ex);
+            }
+            //Common.fileupdate(new File(s.toLowerCase()+".txt"),item);
             FootLabel.setText("Updated ! ! !");
             type.getSelectionModel().clearSelection();
             unit_type.getSelectionModel().clearSelection();
@@ -123,12 +136,6 @@ public class OwnerInController implements Initializable {
         }catch(Exception ex){
             FootLabel.setText("You've left an option empty!");
         }
-
-
-
-
-
-
     }
 
     public void OrderCheckButtonClicked(ActionEvent e) throws Exception{
@@ -140,12 +147,34 @@ public class OwnerInController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        ArrayList<String> types = new ArrayList<>();
-        types=Common.OwnerFile(types, new File("type list"));
+        ArrayList<String> types=new ArrayList<>();
+        try{
+            socket=new Socket("localhost",4444);
+            ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream oi=new ObjectInputStream(socket.getInputStream());
+            String s="type list";
+            outtoServer.writeObject(s);
+            types = (ArrayList<String>) oi.readObject();
+
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+
         type.getItems().addAll(types);
 
         ArrayList<String> unit_types=new ArrayList<>();
-        unit_types=Common.OwnerFile(unit_types,new File("Unit type list"));
+        //unit_types=Common.OwnerFile(unit_types,new File("Unit type list"));
+        try{
+            socket=new Socket("localhost",4444);
+            ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream oi=new ObjectInputStream(socket.getInputStream());
+            String s="Unit type list";
+            outtoServer.writeObject(s);
+            unit_types = (ArrayList<String>) oi.readObject();
+
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
         unit_type.getItems().addAll(unit_types);
 
 

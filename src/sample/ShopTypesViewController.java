@@ -15,10 +15,7 @@ import javafx.stage.Stage;
 
 import javafx.event.ActionEvent;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
@@ -91,8 +88,20 @@ public class ShopTypesViewController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         //Image icon=new Image(getClass().getResourceAsStream("icon.png"));
         //treeViewControl.setTreeview(FoodTree);
-        ArrayList<String> types = new ArrayList<>();
-        types=Common.OwnerFile(types, new File("type list"));
+
+        ArrayList<String> types=new ArrayList<>();
+        try{
+            socket=new Socket("localhost",4444);
+            ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream oi=new ObjectInputStream(socket.getInputStream());
+            String s="type list";
+            outtoServer.writeObject(s);
+            types = (ArrayList<String>) oi.readObject();
+
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+
         FoodType.getItems().addAll(types);
 
     }
