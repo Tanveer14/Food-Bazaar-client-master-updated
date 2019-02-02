@@ -54,33 +54,40 @@ public class LogInPage implements Initializable{
         return false;
     }
     public void OrderButtonClicked (ActionEvent e) throws Exception {
+        boolean NameValid=false,NumValid=false;
+
         String tempc="";
         customer.setName(CustomerName.getText());
 
         tempc=CustomerMail.getText();
         if(tempc.toLowerCase().equals(tempc)&&CheckAChar(tempc,'@')){
             customer.setMail(tempc);
+            NameValid=true;
         }else {
-            Labelcheck.setText("Invalid Email Address or  Contact No");
+            NameValid=false;
         }
-        boolean state1=true,state2=true,state3=true,state4=true;
+        boolean state1=true,state2=true;
         tempc=CustomerPhone.getText();
 
-/*
-        tempc=CustomerPhone.getText();
+
+
         if(!(tempc.length()==11||tempc.length()==9))state1=false;
-        char []digits={'0','1','2','3','4','5','6','7','8','9'};
-        for (char c:digits
+        String digits="0123456789";
+        char []tempcDigits=tempc.toCharArray();
+        for (char c:tempcDigits
              ) {
-          state2= CheckAChar(tempc,c);
-          if (state2==false)break;
-        }*/
-       if(state1&&state2)
-       {
-           customer.setContactNo(tempc);
-       }else {
-           Labelcheck.setText("Invalid Email Address or  Contact No");
-       }
+            state2 = CheckAChar(digits, c);
+            if (state2 == false) {
+                break;
+            }
+        }
+
+        if((state1==false||state2==false))NumValid=false;
+        else {
+
+            customer.setContactNo(tempc);
+            NumValid=true;
+        }
 
         customer.setAddress(CustomerAddress.getText());
         customer.setProductList(CommonTypeViewController.TableProductList);
@@ -89,19 +96,8 @@ public class LogInPage implements Initializable{
         System.out.println(customer);
 
         int temp=0;
-        if(customer.getName().equals("")){
-            temp=1;
-        }
-        if(customer.getMail().equals("")){
-            temp=1;
-        }
-        if(customer.getContactNo().equals("")){
-            temp=1;
-        }
-        if(customer.getAddress().equals("")){
-            temp=1;
-        }
-        if(customer.getProductList().size()==0){
+        if(CustomerName.getText().equals(null)||CustomerMail.equals(null)||CustomerAddress.equals(null)||CustomerPhone.equals(null))
+        {
             temp=1;
         }
 
@@ -126,11 +122,15 @@ public class LogInPage implements Initializable{
             //fw.write(String.valueOf(customercount));
             fw.write(String.valueOf(customercount));
             fw.close();*/
+            if(NameValid&&NumValid){
+                Parent newsceneparent= FXMLLoader.load(getClass().getResource("ConfirmationView.fxml"));
+                Common.ButtonClicked(e,newsceneparent);
+            }else {
+                Labelcheck.setText("Email Address or Contact No Not Valid");
+            }
 
 
 
-            Parent newsceneparent= FXMLLoader.load(getClass().getResource("ConfirmationView.fxml"));
-            Common.ButtonClicked(e,newsceneparent);
         }else{
             Labelcheck.setText("you have left some options empty");
         }
