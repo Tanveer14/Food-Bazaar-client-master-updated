@@ -44,7 +44,7 @@ public class OrderViewController implements Initializable {
             ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream oinfromServer=new ObjectInputStream(socket.getInputStream());
             outtoServer.writeObject("Show Orders");
-           OrderList= (ArrayList<Customer>) oinfromServer.readObject();
+            OrderList= (ArrayList<Customer>) oinfromServer.readObject();
             System.out.println(OrderList.get(0).toString());
             OrderLabel.setText(OrderList.get(0).toString());
             socket.close();
@@ -53,7 +53,6 @@ public class OrderViewController implements Initializable {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        OrderLabel.setText("");
     }
 
     public void PreviousOrderButtonClicked(ActionEvent event) {
