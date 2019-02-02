@@ -45,7 +45,7 @@ public class CommonTypeViewController implements Initializable {
     @FXML TableColumn<product,String> TypeColumn;
     @FXML TableColumn<product,String> UnitTypeColumn;
 
-    public static double totalPrice=0;
+    public static double totalPrice;
     private int k,count;
     ArrayList<product> temp=new ArrayList<>();
     public static ArrayList<product> TableProductList=new ArrayList<>();
@@ -65,6 +65,7 @@ public class CommonTypeViewController implements Initializable {
 
 
     public void getbackButtonClicked(ActionEvent event) throws Exception{
+
         Parent page= FXMLLoader.load(getClass().getResource("ShopTypesView.fxml"));
         Common.ButtonClicked(event,page);
     }
@@ -326,6 +327,9 @@ public class CommonTypeViewController implements Initializable {
         UnitColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         PriceColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         totalPrice=0;
+        FoodTable.getItems().clear();
+        TableProductList.clear();
+        productList.clear();
 
         ArrayList<String> choice=Common.choices();
         Unit1.getItems().addAll(choice);

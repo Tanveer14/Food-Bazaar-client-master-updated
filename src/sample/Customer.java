@@ -88,6 +88,23 @@ public class Customer implements Serializable {
         ProductList = productList;
     }
 
+    public String toMessage()
+    {
+        String temp=new String();
+        temp = "Customer Id:\t" + id + "\n";
+        for (product p : ProductList
+        ) {
+            temp = temp + "\n" + p.getName() + "\t" + p.getUnit() + " " + p.getUnit_type() + "\t" + p.getPrice() + "taka";
+        }
+        temp = temp + "\n\nTotal Price:" + "\t" +TotalPrice + "taka";
+
+        temp += "\n\n\n";
+        temp = temp + "Customer Details:\n******************" +
+                "\nName:\t" + name + "\nMail Address:\t" + getMail()
+                + "\nContact No:\t" + contactNo + "\nAddress Details:\t" +address;
+        return temp;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +

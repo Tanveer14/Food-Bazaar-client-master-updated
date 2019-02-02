@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import java.io.*;
 import java.net.Socket;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Scanner;
@@ -30,7 +31,7 @@ public class LogInPage implements Initializable{
 
     public static String ConfirmationMessage=new String();
     public static String gobackPage;
-    public static int customercount=0;
+    public int customercount=0;
 
     public Customer customer=new Customer();
     public void setCustomerName() {}
@@ -63,6 +64,8 @@ public class LogInPage implements Initializable{
             Labelcheck.setText("Invalid Email Address or  Contact No");
         }
         boolean state1=true,state2=true,state3=true,state4=true;
+        tempc=CustomerPhone.getText();
+
 /*
         tempc=CustomerPhone.getText();
         if(!(tempc.length()==11||tempc.length()==9))state1=false;
@@ -109,20 +112,8 @@ public class LogInPage implements Initializable{
             for (int i = 0; i < customer.ProductList.size(); i++) {
                 temptype = customer.getProductList().get(i).getType();
             }
-            customercount++;
-
-            ConfirmationMessage = "Customer Id:\t" + customercount + "\n";
-            for (product p : customer.ProductList
-            ) {
-                ConfirmationMessage = ConfirmationMessage + "\n" + p.getName() + "\t" + p.getUnit() + " " + p.getUnit_type() + "\t" + p.getPrice() + "taka";
-            }
-            ConfirmationMessage = ConfirmationMessage + "\n\nTotal Price:" + "\t" + customer.getTotalPrice() + "taka";
-
-            ConfirmationMessage += "\n\n\n";
-            ConfirmationMessage = ConfirmationMessage + "Customer Details:\n******************" +
-                    "\nName:\t" + customer.getName() + "\nMail Address:\t" + customer.getMail()
-                    + "\nContact No:\t" + customer.getContactNo() + "\nAddress Details:\t" + customer.getAddress();
-
+            customer.setId(customercount);
+            ConfirmationMessage=customer.toMessage();
             //before it... everything must be stored into binary file
 
             /*File customerFile = new File("Customer Details" + customercount + ".txt");
@@ -131,10 +122,12 @@ public class LogInPage implements Initializable{
             oOutput.writeObject(customer);
             fOutput.close();
             oOutput.close();*/
-            FileWriter fw=new FileWriter("Idcount.txt");
+            /*FileWriter fw=new FileWriter("Idcount.txt");
             //fw.write(String.valueOf(customercount));
             fw.write(String.valueOf(customercount));
-            fw.close();
+            fw.close();*/
+
+
 
             Parent newsceneparent= FXMLLoader.load(getClass().getResource("ConfirmationView.fxml"));
             Common.ButtonClicked(e,newsceneparent);
@@ -188,7 +181,26 @@ public class LogInPage implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         //Image icon=new Image(getClass().getResourceAsStream("icon.png"));
         gobackPage=CommonTypeViewController.Currentpage;
-        File file=new File("Idcount.txt");
+
+
+        try {
+            socket=new Socket("localhost",4444);
+            ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream oinfromServer=new ObjectInputStream(socket.getInputStream());
+            outtoServer.writeObject("Customer Count");
+            customercount= (int) oinfromServer.readObject();
+
+            System.out.println("Customer no- "+customercount);
+
+            socket.close();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        /*File file=new File("Idcount.txt");
         try {
 
             Scanner scanner=new Scanner(file);
@@ -197,7 +209,7 @@ public class LogInPage implements Initializable{
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 }
 
