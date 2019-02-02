@@ -23,7 +23,7 @@ public class OwnerInController implements Initializable {
     @FXML public ComboBox<String> name;
     @FXML public TextField quantity,unit_price;
     @FXML private Button updateButton,nextpagebutton,OrderCheckButton;
-    @FXML private Label FootLabel;
+    @FXML private Label FootLabel,ItemshowLabel;
 
     public static ArrayList<product> item=new ArrayList<>();
 
@@ -97,6 +97,18 @@ public class OwnerInController implements Initializable {
             System.out.println(ex);
         }
         name.setDisable(false);
+        ItemshowLabel.setText("");
+    }
+
+    public void ItemTypeSelected() throws Exception{
+        String s=name.getSelectionModel().getSelectedItem();
+        for(product i:item){
+            if(i.getName().equals(s)){
+                String text="Product name: "+s+"\nAvailable Units: "+i.getAvailable_units()+"\nPrice: "+i.getPrice()+" tk per "+i.getUnit_type();
+                ItemshowLabel.setText(text);
+                break;
+            }
+        }
     }
 
 
@@ -133,6 +145,7 @@ public class OwnerInController implements Initializable {
             name.getSelectionModel().clearSelection();
             unit_price.setText("");
             quantity.setText("");
+            ItemshowLabel.setText("");
         }catch(Exception ex){
             FootLabel.setText("You've left an option empty!");
         }
