@@ -29,8 +29,20 @@ public class OrderViewController implements Initializable {
 
     @FXML public void DoneButtonClicked()
    {
-
-
+       String labelText=OrderLabel.getText();
+       String [] textParts=labelText.split("\n");
+       try {
+           socket=new Socket("localhost",4444);
+           ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
+           ObjectInputStream infromServer=new ObjectInputStream(socket.getInputStream());
+           outtoServer.writeObject(textParts[0]);
+           OrderList= (ArrayList<Customer>) infromServer.readObject();
+           socket.close();
+       } catch (IOException e) {
+           e.printStackTrace();
+       } catch (ClassNotFoundException e) {
+           e.printStackTrace();
+       }
    }
     @FXML public void NextOrderButtonClicked()
     {

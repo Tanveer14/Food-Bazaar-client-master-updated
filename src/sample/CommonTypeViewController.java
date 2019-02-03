@@ -198,11 +198,15 @@ public class CommonTypeViewController implements Initializable {
     public void TreeViewClicked()
     {
 
-        String strTemp= FoodTree.getSelectionModel().getSelectedItem().getValue();
-        nextButton.setVisible(false);
-        previousButton.setVisible(false);
-        k=0;
-        setScene(strTemp);
+        try {
+            String strTemp= FoodTree.getSelectionModel().getSelectedItem().getValue();
+            nextButton.setVisible(false);
+            previousButton.setVisible(false);
+            k=0;
+            setScene(strTemp);
+        }catch (NullPointerException ne){
+
+        }
     }
 
 
@@ -330,6 +334,7 @@ public class CommonTypeViewController implements Initializable {
         FoodTable.getItems().clear();
         TableProductList.clear();
         productList.clear();
+
 
         ArrayList<String> choice=Common.choices();
         Unit1.getItems().addAll(choice);
