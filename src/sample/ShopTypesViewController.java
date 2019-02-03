@@ -25,13 +25,11 @@ public class ShopTypesViewController implements Initializable {
     @FXML
     ComboBox<String> FoodType;
     @FXML
-    Button SellerButton;
-    @FXML
     Label CommentLabel;
-    @FXML private PasswordField password;
+
     public static String SelectedType=null;
 
-    public void SellerButtonClicked(ActionEvent event) throws Exception{
+    /*public void SellerButtonClicked(ActionEvent event) throws Exception{
        // String s="Password "+password.getText();
         /*try{
             socket=new Socket("localhost",4444);
@@ -43,7 +41,7 @@ public class ShopTypesViewController implements Initializable {
 
         }catch(Exception ex){
             System.out.println(ex);
-        }*/
+        }
         String s=password.getText();
         password.setText("");
         if(s.equals("NaMa1405")){
@@ -58,7 +56,7 @@ public class ShopTypesViewController implements Initializable {
         }
 
 
-    }
+    }*/
 
     public void ReadLabel() throws Exception{
         CommentLabel.setDisable(false);

@@ -31,6 +31,7 @@ public class OrderViewController implements Initializable {
    {
        String labelText=OrderLabel.getText();
        String [] textParts=labelText.split("\n");
+       System.out.println(textParts[0]);
        try {
            socket=new Socket("localhost",4444);
            ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());

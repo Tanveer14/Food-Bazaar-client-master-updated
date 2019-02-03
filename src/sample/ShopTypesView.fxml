@@ -21,8 +21,6 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ShopTypesViewController">
    <children>
       <ComboBox fx:id="FoodType" layoutX="119.0" layoutY="205.0" onAction="#FoodTypeSelected" prefHeight="48.0" prefWidth="235.0" promptText="Choose your Food Types" />
-      <Button fx:id="SellerButton" layoutX="264.0" layoutY="365.0" mnemonicParsing="false" onAction="#SellerButtonClicked" prefHeight="32.0" prefWidth="92.0" text="Owner Log In " />
       <Label fx:id="CommentLabel" layoutX="74.0" layoutY="427.0" onMouseClicked="#ReadLabel" prefHeight="117.0" prefWidth="379.0" text="know about our customer's feedback" textFill="#f8f6f6" />
-      <PasswordField fx:id="password" layoutX="115.0" layoutY="365.0" prefHeight="32.0" prefWidth="122.0" promptText="password" />
    </children>
 </AnchorPane>
