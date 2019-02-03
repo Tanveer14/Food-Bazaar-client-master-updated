@@ -114,7 +114,9 @@ public class ShopTypesViewController implements Initializable {
             alert.setContentText("Invalid ID");
             alert.showAndWait();
         }else {
-
+            //send the id with proper instruction
+            //get the reply message from server
+            //reply will be a order type object
         }
     }
 
