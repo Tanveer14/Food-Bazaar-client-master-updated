@@ -26,6 +26,8 @@ public class ShopTypesViewController implements Initializable {
     ComboBox<String> FoodType;
     @FXML
     Label CommentLabel;
+    @FXML
+    TextField idtext;
 
     public static String SelectedType=null;
 
@@ -102,6 +104,18 @@ public class ShopTypesViewController implements Initializable {
 
         //SelectedType=FoodType.getValue();
 
+    }
+
+    @FXML public void  CheckButtonClicked()
+    {
+        if(idtext.getText().equals(null)){
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Invalid ID");
+            alert.showAndWait();
+        }else {
+
+        }
     }
 
     @Override
