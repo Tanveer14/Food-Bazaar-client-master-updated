@@ -6,10 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TreeView;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 
@@ -31,11 +28,36 @@ public class ShopTypesViewController implements Initializable {
     Button SellerButton;
     @FXML
     Label CommentLabel;
+    @FXML private PasswordField password;
     public static String SelectedType=null;
 
     public void SellerButtonClicked(ActionEvent event) throws Exception{
-        Parent subPage= FXMLLoader.load(getClass().getResource("OwnerIn.fxml"));
-        Common.ButtonClicked(event,subPage);
+       // String s="Password "+password.getText();
+        /*try{
+            socket=new Socket("localhost",4444);
+            ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream oi=new ObjectInputStream(socket.getInputStream());
+            outtoServer.writeObject(s);
+            String returnmessage=(String) oi.readObject();
+            System.out.println(returnmessage);
+
+        }catch(Exception ex){
+            System.out.println(ex);
+        }*/
+        String s=password.getText();
+        password.setText("");
+        if(s.equals("NaMa1405")){
+            Parent subPage= FXMLLoader.load(getClass().getResource("OwnerIn.fxml"));
+            Common.ButtonClicked(event,subPage);
+        }
+        else{
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Invalid password");
+            alert.showAndWait();
+        }
+
+
     }
 
     public void ReadLabel() throws Exception{
