@@ -33,7 +33,7 @@
                   <Insets left="110.0" />
                </VBox.margin>
             </Button>
-            <Label fx:id="FootLabel" alignment="CENTER" prefHeight="35.0" prefWidth="250.0">
+            <Label fx:id="FootLabel" alignment="CENTER" prefHeight="35.0" prefWidth="250.0" textFill="#fffffff3">
                <VBox.margin>
                   <Insets left="25.0" />
                </VBox.margin>
