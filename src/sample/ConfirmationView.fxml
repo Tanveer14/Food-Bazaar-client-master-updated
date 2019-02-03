@@ -10,20 +10,20 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="bgorder" stylesheets="@bgOrder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ConfirmationViewController">
    <children>
-      <Label alignment="CENTER" layoutX="254.0" layoutY="75.0" prefHeight="71.0" prefWidth="293.0" text="Order Details:" textFill="#8d3d3d">
+      <Label alignment="CENTER" layoutX="254.0" layoutY="60.0" prefHeight="71.0" prefWidth="293.0" text="Order Details:" textFill="#8d3d3d">
          <font>
             <Font name="System Bold Italic" size="25.0" />
          </font>
       </Label>
-      <Button fx:id="homeButton" layoutX="666.0" layoutY="80.0" mnemonicParsing="false" onAction="#homeButtonClicked" prefHeight="30.0" prefWidth="65.0" text="Home" />
-      <ScrollPane layoutX="89.0" layoutY="152.0" prefHeight="342.0" prefWidth="622.0">
+      <Button fx:id="homeButton" layoutX="89.0" layoutY="74.0" mnemonicParsing="false" onAction="#homeButtonClicked" prefHeight="30.0" prefWidth="65.0" text="Home" />
+      <ScrollPane layoutX="89.0" layoutY="120.0" prefHeight="342.0" prefWidth="622.0">
          <content>
-            <Label fx:id="ConfirmationMessage" alignment="TOP_LEFT" prefHeight="340.0" prefWidth="620.0" textFill="#363030">
+            <Label fx:id="ConfirmationMessage" alignment="TOP_LEFT" textFill="#363030">
                <font>
                   <Font size="15.0" />
                </font>
                <padding>
-                  <Insets left="20.0" top="10.0" />
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
             </Label>
          </content>
