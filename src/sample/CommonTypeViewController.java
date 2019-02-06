@@ -298,6 +298,7 @@ public class CommonTypeViewController implements Initializable {
             String s="type list";
             outtoServer.writeObject(s);
             types = (ArrayList<String>) oi.readObject();
+            
 
         }catch(Exception ex){
             System.out.println(ex);
@@ -308,7 +309,7 @@ public class CommonTypeViewController implements Initializable {
             String itemtext=types.get(i);
             treeItems.add(new TreeItem<>(itemtext));
             i++;
-            if(i>itemtext.length())break;
+            if(i>=types.size())break;
 
         }
         foods.getChildren().addAll(treeItems);
