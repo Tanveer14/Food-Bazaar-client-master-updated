@@ -32,6 +32,6 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button layoutX="239.0" layoutY="441.0" mnemonicParsing="false" onAction="#CheckButtonClicked" text="Check" />
+      <Button fx:id="CheckButton" layoutX="239.0" layoutY="441.0" mnemonicParsing="false" onAction="#CheckButtonClicked" text="Check" />
    </children>
 </AnchorPane>

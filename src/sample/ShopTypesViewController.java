@@ -28,6 +28,7 @@ public class ShopTypesViewController implements Initializable {
     Label CommentLabel;
     @FXML
     TextField idtext;
+    @FXML Button CheckButton;
 
     public static String SelectedType=null;
 
