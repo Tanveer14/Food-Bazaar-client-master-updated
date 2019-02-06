@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import javafx.event.ActionEvent;
 
+import javax.sound.midi.Soundbank;
 import java.io.*;
 import java.net.Socket;
 import java.net.URL;
@@ -109,15 +110,46 @@ public class ShopTypesViewController implements Initializable {
 
     @FXML public void  CheckButtonClicked()
     {
-        if(idtext.getText().equals(null)){
+        if(idtext.getText().equals("")){
             Alert alert=new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Invalid ID");
+            alert.setHeaderText("Order Status");
+            alert.setContentText("ID cannot be empty!");
             alert.showAndWait();
         }else {
+            String temp="CheckOrder "+idtext.getText();
+            try{
+                socket=new Socket("localhost",4444);
+                ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
+                ObjectInputStream oinfromserver=new ObjectInputStream(socket.getInputStream());
+                outtoServer.writeObject(temp);
+               // Order CustomerOrder = (Order) oinfromserver.readObject();
+                CustomerOrder CustomerOrder= (CustomerOrder)oinfromserver.readObject();
+
+                /*CustomerOrder CustomerOrder=new CustomerOrder(3,"Ordered");
+                CustomerOrder.setName("naeem");*/
+                if(CustomerOrder.getStatus().equals("Invalid ID")){
+                    //alertbox
+                    Alert alert=new Alert(Alert.AlertType.WARNING);
+                    alert.setHeaderText("Order Status");
+                    alert.setContentText(CustomerOrder.getStatus());
+                    alert.showAndWait();
+                    System.out.println(CustomerOrder.getStatus());
+                }
+                else {
+                    Alert alert=new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("Order Status");
+                    String temp1="Customer Name: "+CustomerOrder.getName()+"\nCustomer ID: "+CustomerOrder.getId()+"\nOrder: "+CustomerOrder.getStatus();
+                    alert.setContentText(temp1);
+                    alert.showAndWait();
+                    System.out.println(CustomerOrder.getStatus());
+                }
+
+            }catch(Exception ex){
+                System.out.println(ex);
+            }
             //send the id with proper instruction
             //get the reply message from server
-            //reply will be a order type object
+            //reply will be an order type object
         }
     }
 
