@@ -20,8 +20,7 @@ import java.awt.*;
 import java.io.*;
 import java.net.Socket;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class CommonTypeViewController implements Initializable {
 
@@ -44,6 +43,7 @@ public class CommonTypeViewController implements Initializable {
     @FXML TableColumn<product,Double> PriceColumn;
     @FXML TableColumn<product,String> TypeColumn;
     @FXML TableColumn<product,String> UnitTypeColumn;
+    private Map<String,Double> TableItems=new HashMap<>();
 
     public static double totalPrice;
     private int k,count;
@@ -73,12 +73,15 @@ public class CommonTypeViewController implements Initializable {
     public void AddToCartButton1Clicked()
     {
         if(Unit1.getValue()==null) return;
-        if((temp.get(k-count).getAvailable_units()-Double.parseDouble(String.valueOf(Unit1.getValue())))>=0){
+        if((TableItems.get(temp.get(k-count).getName())-Double.parseDouble(String.valueOf(Unit1.getValue())))>=0){
             try {
+                int getValue=Integer.parseInt(String.valueOf(Unit1.getValue()));
                 Common.AddToTable(Label1,caption,TotalPriceValue, Unit1, FoodTable, productList);
+                temp.get(k-count).exclude_available_units(getValue);
+                TableItems.put(temp.get(k -count).getName(),temp.get(k -count).getAvailable_units());
             }catch (Exception e)
             {
-                System.out.println(e);
+                e.printStackTrace();
             }
         }
         Unit1.getSelectionModel().clearSelection();
@@ -86,9 +89,12 @@ public class CommonTypeViewController implements Initializable {
     }
     public void AddToCartButton2Clicked() {
         if(Unit2.getValue()==null) return;
-        if ((temp.get(k - count+1).getAvailable_units() - Double.parseDouble(String.valueOf(Unit2.getValue()))) >= 0) {
+        if ((TableItems.get(temp.get(k-count+1).getName()) - Double.parseDouble(String.valueOf(Unit2.getValue()))) >= 0) {
             try {
+                int getValue=Integer.parseInt(String.valueOf(Unit2.getValue()));
                 Common.AddToTable(Label2,caption,TotalPriceValue, Unit2, FoodTable, productList);
+                temp.get(k -count+ 1).exclude_available_units(getValue);
+                TableItems.put(temp.get(k -count+1 ).getName(),temp.get(k -count+ 1).getAvailable_units());
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -98,9 +104,12 @@ public class CommonTypeViewController implements Initializable {
     public void AddToCartButton3Clicked()
     {
         if(Unit3.getValue()==null) return;
-        if((temp.get(k-count+2).getAvailable_units()-Double.parseDouble(String.valueOf(Unit3.getValue())))>=0){
+        if((TableItems.get(temp.get(k-count+2).getName())-Double.parseDouble(String.valueOf(Unit3.getValue())))>=0){
             try {
+                int getValue=Integer.parseInt(String.valueOf(Unit3.getValue()));
                 Common.AddToTable(Label3,caption,TotalPriceValue, Unit3, FoodTable, productList);
+                temp.get(k -count+ 2).exclude_available_units(getValue);
+                TableItems.put(temp.get(k -count+ 2).getName(),temp.get(k -count+2 ).getAvailable_units());
             }catch (Exception e)
             {
                 System.out.println(e);
@@ -111,10 +120,12 @@ public class CommonTypeViewController implements Initializable {
 
     public void AddToCartButton4Clicked() {
         if(Unit4.getValue()==null) return;
-        if ((temp.get(k -count+3).getAvailable_units() - Double.parseDouble(String.valueOf(Unit4.getValue()))) >= 0) {
+        if ((TableItems.get(temp.get(k-count+3).getName())- Double.parseDouble(String.valueOf(Unit4.getValue()))) >= 0) {
             try {
-
+                int getValue=Integer.parseInt(String.valueOf(Unit4.getValue()));
                 Common.AddToTable(Label4,caption,TotalPriceValue, Unit4, FoodTable, productList);
+                temp.get(k -count+ 3).exclude_available_units(getValue);
+                TableItems.put(temp.get(k -count+ 3).getName(),temp.get(k -count+ 3).getAvailable_units());
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -123,9 +134,12 @@ public class CommonTypeViewController implements Initializable {
     }
     public void AddToCartButton5Clicked() {
         if(Unit5.getValue()==null) return;
-        if ((temp.get(k -count+ 4).getAvailable_units() - Double.parseDouble(String.valueOf(Unit5.getValue()))) >= 0) {
+        if ((TableItems.get(temp.get(k-count+4).getName())- Double.parseDouble(String.valueOf(Unit5.getValue()))) >= 0) {
             try {
+                int getValue=Integer.parseInt(String.valueOf(Unit5.getValue()));
                 Common.AddToTable(Label5,caption,TotalPriceValue, Unit5, FoodTable, productList);
+                temp.get(k -count+ 4 ).exclude_available_units(getValue);
+                TableItems.put(temp.get(k -count+  4).getName(),temp.get(k -count+ 4 ).getAvailable_units());
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -260,6 +274,14 @@ public class CommonTypeViewController implements Initializable {
         ObjectInputStream oi=new ObjectInputStream(socket.getInputStream());
         outtoServer.writeObject(strtemp);
         temp= (ArrayList<product>) oi.readObject();
+        for(product i:temp){
+            if(!(TableItems.containsKey(i.getName())))
+                TableItems.put(i.getName(),i.getAvailable_units());
+            }
+            for(Map.Entry<String,Double> ee:TableItems.entrySet()){
+                System.out.println(ee.getKey()+" "+ee.getValue());
+            }
+            System.out.println();
         socket.close();
         }catch (Exception ex){
             System.out.println(ex);
@@ -351,6 +373,7 @@ public class CommonTypeViewController implements Initializable {
             strtemp=LogInPage.gobackPage;
         }
         setScene(strtemp);
+
 
         try {
             setTreeview(FoodTree);
