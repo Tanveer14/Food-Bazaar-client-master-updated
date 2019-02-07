@@ -58,9 +58,19 @@ public class CommonTypeViewController implements Initializable {
             TableProductList.add(demoproduct);
             System.out.println(TableProductList.get(i));
         }
-        FoodTable.getItems().clear();
-        Parent newsceneparent= FXMLLoader.load(getClass().getResource("LogInPage.fxml"));
-        Common.ButtonClicked(e,newsceneparent);
+        if(TableProductList.size()!=0){
+            FoodTable.getItems().clear();
+            Parent newsceneparent= FXMLLoader.load(getClass().getResource("LogInPage.fxml"));
+            Common.ButtonClicked(e,newsceneparent);
+        }
+        else {
+            Alert alert=new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("CART IS EMPTY ! ! !");
+
+            //alert.setContentText(temp1);
+            alert.showAndWait();
+        }
+
     }
 
 
