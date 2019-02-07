@@ -79,11 +79,7 @@
                <VBox.margin>
                   <Insets left="100.0" />
                </VBox.margin></Label>
-            <TextArea fx:id="CommentBox" prefHeight="120.0" prefWidth="400.0" promptText="Your feedback is highly appreciatable...">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </TextArea>
+
          </children>
          <BorderPane.margin>
             <Insets bottom="40.0" left="50.0" right="40.0" />
