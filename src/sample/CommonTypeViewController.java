@@ -298,7 +298,7 @@ public class CommonTypeViewController implements Initializable {
             String s="type list";
             outtoServer.writeObject(s);
             types = (ArrayList<String>) oi.readObject();
-            
+
 
         }catch(Exception ex){
             System.out.println(ex);
