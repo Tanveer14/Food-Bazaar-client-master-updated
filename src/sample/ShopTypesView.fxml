@@ -21,7 +21,6 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ShopTypesViewController">
    <children>
       <ComboBox fx:id="FoodType" layoutX="140.0" layoutY="190.0" onAction="#FoodTypeSelected" prefHeight="50.0" prefWidth="250.0" promptText="Choose your Food Types" />
-      <Label fx:id="CommentLabel" layoutX="74.0" layoutY="427.0" onMouseClicked="#ReadLabel" prefHeight="117.0" prefWidth="379.0" text="know about our customer's feedback" textFill="#f8f6f6" />
       <TextField fx:id="idtext" layoutX="211.0" layoutY="349.0" prefHeight="50.0" prefWidth="105.0" promptText="Your ID Here">
          <font>
             <Font size="15.0" />

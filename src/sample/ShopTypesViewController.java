@@ -138,7 +138,7 @@ public class ShopTypesViewController implements Initializable {
                 else {
                     Alert alert=new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText("Order Status");
-                    String temp1="Customer Name: "+CustomerOrder.getName()+"\nCustomer ID: "+CustomerOrder.getId()+"\nOrder: "+CustomerOrder.getStatus();
+                    String temp1="Customer Name: "+CustomerOrder.getName()+"\nCustomer ID: "+CustomerOrder.getId()+"\nOrder:\t"+CustomerOrder.getStatus();
                     alert.setContentText(temp1);
                     alert.showAndWait();
                     System.out.println(CustomerOrder.getStatus());
@@ -151,6 +151,7 @@ public class ShopTypesViewController implements Initializable {
             //get the reply message from server
             //reply will be an order type object
         }
+        idtext.clear();
     }
 
     @Override

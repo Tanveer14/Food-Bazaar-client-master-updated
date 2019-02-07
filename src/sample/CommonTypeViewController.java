@@ -203,7 +203,7 @@ public class CommonTypeViewController implements Initializable {
             nextButton.setVisible(false);
             previousButton.setVisible(false);
             k=0;
-            setScene(strTemp);
+            if(!strTemp.equals("Food Items"))setScene(strTemp);
         }catch (NullPointerException ne){
 
         }
