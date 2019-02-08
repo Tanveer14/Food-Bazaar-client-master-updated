@@ -247,6 +247,7 @@ public class CommonTypeViewController implements Initializable {
         Label4.setText("");
         Label5.setText("");
         count=0;
+        if(k==temp.size()) return 0;
         Label1.setText(temp.get(k).getName()+"\n"+temp.get(k).getPrice()+" tk\nper "+temp.get(k).getUnit_type());
         vbox1.setVisible(true);
         k++;
@@ -288,10 +289,6 @@ public class CommonTypeViewController implements Initializable {
             if(!(TableItems.containsKey(i.getName())))
                 TableItems.put(i.getName(),i.getAvailable_units());
             }
-            for(Map.Entry<String,Double> ee:TableItems.entrySet()){
-                System.out.println(ee.getKey()+" "+ee.getValue());
-            }
-            System.out.println();
         socket.close();
         }catch (Exception ex){
             System.out.println(ex);

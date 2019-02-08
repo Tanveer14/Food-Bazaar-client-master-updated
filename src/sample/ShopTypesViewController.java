@@ -173,6 +173,7 @@ public class ShopTypesViewController implements Initializable {
         }
 
         FoodType.getItems().addAll(types);
-
+        FoodType.setStyle("-fx-background-color: #ffff99;");
+        CheckButton.setStyle("-fx-background-color: #555d50;");
     }
 }
