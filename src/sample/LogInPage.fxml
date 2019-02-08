@@ -20,9 +20,9 @@
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="471.0" prefWidth="550.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="38.0" textFill="orange" prefWidth="262.0"  text="Provide your Information">
+            <Label prefHeight="38.0" prefWidth="262.0" text="Provide your Information" textFill="orange">
                <font>
-                  <Font name="System Bold Italic" size="21.0"  />
+                  <Font name="System Bold Italic" size="21.0" />
                </font>
             </Label>
             <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="30.0" prefHeight="40.0" prefWidth="200.0">
@@ -64,12 +64,12 @@
                   </TextField>
                </children>
             </HBox>
-            <Button fx:id="OrderButton" mnemonicParsing="false" onAction="#OrderButtonClicked" prefHeight="47.0" prefWidth="200.0" text="Order Product">
+            <Button fx:id="OrderButton" mnemonicParsing="false" onAction="#OrderButtonClicked" prefHeight="47.0" prefWidth="200.0" text="Confirm Order">
                <font>
                   <Font name="Times New Roman" size="20.0" />
                </font>
                <VBox.margin>
-                  <Insets left="265.0" top="20.0" />
+                  <Insets top="20.0" />
                </VBox.margin>
             </Button>
             <Label fx:id="Labelcheck" prefHeight="40.0" prefWidth="450.0">
@@ -82,7 +82,7 @@
 
          </children>
          <BorderPane.margin>
-            <Insets bottom="40.0" left="50.0" right="40.0" />
+            <Insets bottom="40.0" left="150.0" right="40.0" top="60.0" />
          </BorderPane.margin>
          <padding>
             <Insets bottom="20.0" right="20.0" top="40.0" />
