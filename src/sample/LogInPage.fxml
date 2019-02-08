@@ -20,9 +20,9 @@
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="471.0" prefWidth="550.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="38.0" prefWidth="262.0"  text="Provide your Information">
+            <Label prefHeight="38.0" textFill="orange" prefWidth="262.0"  text="Provide your Information">
                <font>
-                  <Font name="System Bold Italic" size="21.0" />
+                  <Font name="System Bold Italic" size="21.0"  />
                </font>
             </Label>
             <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="30.0" prefHeight="40.0" prefWidth="200.0">
