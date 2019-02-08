@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CommonTypeViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="bgcommon" stylesheets="@CommonBG.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CommonTypeViewController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -19,7 +19,10 @@
             </Label>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Label fx:id="Label1" prefHeight="90.0" prefWidth="180.0" />
+                  <Label fx:id="Label1" prefHeight="90.0" prefWidth="180.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                   <VBox fx:id="vbox1" prefHeight="100.0" prefWidth="123.0" spacing="30.0" visible="false">
                      <children>
                         <ComboBox fx:id="Unit1" prefHeight="25.0" prefWidth="114.0" promptText="Select Units" />
@@ -33,7 +36,10 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Label fx:id="Label2" prefHeight="90.0" prefWidth="180.0" />
+                  <Label fx:id="Label2" prefHeight="90.0" prefWidth="180.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                   <VBox fx:id="vbox2" prefHeight="100.0" prefWidth="123.0" spacing="30.0" visible="false">
                      <children>
                         <ComboBox fx:id="Unit2" prefHeight="25.0" prefWidth="114.0" promptText="Select Units" />
@@ -47,7 +53,10 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Label fx:id="Label3" prefHeight="90.0" prefWidth="180.0" />
+                  <Label fx:id="Label3" prefHeight="90.0" prefWidth="180.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                   <VBox fx:id="vbox3" prefHeight="100.0" prefWidth="123.0" spacing="30.0" visible="false">
                      <children>
                         <ComboBox fx:id="Unit3" prefHeight="25.0" prefWidth="114.0" promptText="Select Units" />
@@ -61,7 +70,10 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Label fx:id="Label4" prefHeight="90.0" prefWidth="180.0" />
+                  <Label fx:id="Label4" prefHeight="90.0" prefWidth="180.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                   <VBox fx:id="vbox4" prefHeight="100.0" prefWidth="123.0" spacing="30.0" visible="false">
                      <children>
                         <ComboBox fx:id="Unit4" prefHeight="25.0" prefWidth="114.0" promptText="Select Units" />
@@ -75,7 +87,10 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Label fx:id="Label5" prefHeight="90.0" prefWidth="180.0" />
+                  <Label fx:id="Label5" prefHeight="90.0" prefWidth="180.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                   <VBox fx:id="vbox5" prefHeight="100.0" prefWidth="123.0" spacing="30.0" visible="false">
                      <children>
                         <ComboBox fx:id="Unit5" prefHeight="25.0" prefWidth="114.0" promptText="Select Units" />
@@ -170,7 +185,7 @@
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TreeView fx:id="FoodTree" onMouseClicked="#TreeViewClicked" prefHeight="600.0" prefWidth="200.0" />
+            <TreeView fx:id="FoodTree" onMouseClicked="#TreeViewClicked" prefHeight="531.0" prefWidth="200.0" />
          </children>
       </AnchorPane>
    </left>

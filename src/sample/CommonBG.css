@@ -1,0 +1,4 @@
+.bgcommon{
+    -fx-background-image: url("/sample/commontypeImage.jpg");
+    -fx-background-size: 100% 100%;
+}
