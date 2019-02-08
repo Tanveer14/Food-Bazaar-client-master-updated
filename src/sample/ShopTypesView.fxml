@@ -23,12 +23,12 @@
    <children>
       <ComboBox fx:id="FoodType" layoutX="205.0" layoutY="263.0" onAction="#FoodTypeSelected" prefHeight="37.0" prefWidth="401.0" promptText="Choose your Food Types" />
       <TextField fx:id="idtext" layoutX="568.0" layoutY="54.0" prefHeight="25.0" prefWidth="114.0" promptText="Your ID Here" />
-      <Label alignment="CENTER" layoutX="548.0" layoutY="28.0" text="Enter your Customer ID to check Order Status">
+      <Label alignment="CENTER" layoutX="548.0" layoutY="28.0" opacity="0.71" text="Enter your Customer ID to check Order Status">
          <font>
             <Font name="Calibri Bold" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="CheckButton" layoutX="698.0" layoutY="54.0" mnemonicParsing="false" onAction="#CheckButtonClicked" prefHeight="25.0" prefWidth="66.0" text="Check">
+      <Button fx:id="CheckButton" layoutX="698.0" layoutY="54.0" mnemonicParsing="false" onAction="#CheckButtonClicked" prefHeight="25.0" prefWidth="66.0" text="Check" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font></Button>
