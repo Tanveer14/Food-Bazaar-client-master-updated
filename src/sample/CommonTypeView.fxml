@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -144,18 +145,21 @@
             </TableView>
             <HBox prefHeight="36.0" prefWidth="205.0" spacing="20.0">
                <children>
-                  <Label prefHeight="21.0" prefWidth="138.0" text="Total Price">
+                  <Label prefHeight="21.0" prefWidth="138.0" text="Total Price" textFill="#ee9b0a">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
                   <Region prefHeight="37.0" prefWidth="101.0" />
-                  <Label fx:id="TotalPriceValue" prefHeight="17.0" prefWidth="143.0" />
+                  <Label fx:id="TotalPriceValue" prefHeight="17.0" prefWidth="143.0" textFill="#252001">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></Label>
                </children>
             </HBox>
             <HBox spacing="25.0">
                <children>
-                  <Button fx:id="DeleteItemButton" mnemonicParsing="false" onAction="#DeleteButtonClicked" prefHeight="34.0" prefWidth="97.0" text="Delete Item">
+                  <Button fx:id="DeleteItemButton" mnemonicParsing="false" onAction="#DeleteButtonClicked" prefHeight="34.0" prefWidth="107.0" text="Delete Item">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -163,12 +167,12 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="ConfirmButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ConfirmButtonClicked" prefHeight="34.0" prefWidth="83.0" text="Confirm">
+                  <Button fx:id="ConfirmButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ConfirmButtonClicked" prefHeight="34.0" prefWidth="111.0" text="Place Order">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="20.0" />
+                        <Insets left="60.0" />
                      </HBox.margin>
                   </Button>
                </children>
