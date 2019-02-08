@@ -96,43 +96,52 @@ public class LogInPage implements Initializable{
         System.out.println(customer);
 
         int temp=0;
-        if(CustomerName.getText().equals(null)||CustomerMail.equals(null)||CustomerAddress.equals(null)||CustomerPhone.equals(null))
+        if(CustomerName.getText().length()==0||CustomerMail.getText().length()==0||CustomerAddress.getText().length()==0||CustomerPhone.getText().length()==0)
         {
             temp=1;
         }
 
         //modifying file available units
         if(temp==0) {
-            Labelcheck.setText("");
+            //Labelcheck.setText("");
             String temptype;
             for (int i = 0; i < customer.ProductList.size(); i++) {
                 temptype = customer.getProductList().get(i).getType();
             }
             customer.setId(customercount);
             ConfirmationMessage=customer.toMessage();
-            //before it... everything must be stored into binary file
 
-            /*File customerFile = new File("Customer Details" + customercount + ".txt");
-            FileOutputStream fOutput = new FileOutputStream(customerFile);
-            ObjectOutputStream oOutput = new ObjectOutputStream(fOutput);
-            oOutput.writeObject(customer);
-            fOutput.close();
-            oOutput.close();*/
-            /*FileWriter fw=new FileWriter("Idcount.txt");
-            //fw.write(String.valueOf(customercount));
-            fw.write(String.valueOf(customercount));
-            fw.close();*/
             if(NameValid&&NumValid){
+
+                try{
+                    socket=new Socket("localhost",4444);
+                    ObjectOutputStream Out=new ObjectOutputStream(socket.getOutputStream());
+                    Out.writeObject(customer);
+                    Out.flush();
+                    Out.close();
+                    socket.close();
+
+                }catch (Exception ex)
+                {
+                    System.out.println(ex);
+                }
                 Parent newsceneparent= FXMLLoader.load(getClass().getResource("ConfirmationView.fxml"));
                 Common.ButtonClicked(e,newsceneparent);
             }else {
-                Labelcheck.setText("Email Address or Contact No Not Valid");
+                //Labelcheck.setText("Email Address or Contact No Not Valid");
+
+                Alert alert=new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Email Address or Contact No Not Valid");
+                alert.showAndWait();
             }
 
 
 
         }else{
-            Labelcheck.setText("you have left some options empty");
+           // Labelcheck.setText("you have left some options empty");
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("you have left some options empty");
+            alert.showAndWait();
         }
 
 
@@ -144,11 +153,8 @@ public class LogInPage implements Initializable{
         System.out.println(c);
         */
 
-        CustomerName.setText("");
-        CustomerMail.setText("");
-        CustomerPhone.setText("");
-        CustomerAddress.setText("");
-        try{
+
+       /* try{
             socket=new Socket("localhost",4444);
             ObjectOutputStream Out=new ObjectOutputStream(socket.getOutputStream());
             Out.writeObject(customer);
@@ -159,9 +165,13 @@ public class LogInPage implements Initializable{
         }catch (Exception ex)
         {
             System.out.println(ex);
-        }
+        }*/
 
-
+        CustomerName.setText("");
+        CustomerMail.setText("");
+        CustomerPhone.setText("");
+        CustomerAddress.setText("");
+        Labelcheck.setText("");
 
 
 
