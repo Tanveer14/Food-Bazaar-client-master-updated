@@ -173,6 +173,5 @@ public class ShopTypesViewController implements Initializable {
         }
 
         FoodType.getItems().addAll(types);
-
     }
 }
