@@ -65,9 +65,9 @@ public class CommonTypeViewController implements Initializable {
         }
         else {
             Alert alert=new Alert(Alert.AlertType.WARNING);
-            alert.setHeaderText("CART IS EMPTY ! ! !");
+            //alert.setHeaderText("CART IS EMPTY ! ! !");
 
-            //alert.setContentText(temp1);
+            alert.setContentText("Cart cannot be empty .");
             alert.showAndWait();
         }
 
