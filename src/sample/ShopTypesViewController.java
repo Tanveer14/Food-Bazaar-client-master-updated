@@ -171,9 +171,10 @@ public class ShopTypesViewController implements Initializable {
         }catch(Exception ex){
             System.out.println(ex);
         }
+        //tor wood color 483121
 
         FoodType.getItems().addAll(types);
-        FoodType.setStyle("-fx-background-color: #ffff99;");
-        CheckButton.setStyle("-fx-background-color: #555d50;");
+        FoodType.setStyle("-fx-background-color: #232020;");
+        CheckButton.setStyle("-fx-background-color: #232020;");
     }
 }
