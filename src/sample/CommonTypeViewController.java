@@ -388,8 +388,6 @@ public class CommonTypeViewController implements Initializable {
             System.out.println(e);
         }
 
-
-
-
+       
     }
 }
