@@ -55,7 +55,7 @@ public class CommonTypeViewController implements Initializable {
     private static void nullValue()
     {
         Alert alert=new Alert(Alert.AlertType.WARNING);
-        alert.setContentText("Yomu didn't select any quantity of item.");
+        alert.setContentText("You didn't select any quantity of item.");
         alert.showAndWait();
     }
     public void ConfirmButtonClicked(ActionEvent e) throws IOException {
