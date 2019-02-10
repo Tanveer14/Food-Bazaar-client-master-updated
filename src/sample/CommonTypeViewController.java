@@ -80,6 +80,13 @@ public class CommonTypeViewController implements Initializable {
 
     }
 
+    public void alertmessage(Double d,String s){
+        Alert alert=new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setContentText("Sorry  :(:(\n"+"We only have "+d+ " more items of "+s+" available in our stock");
+        alert.showAndWait();
+    }
+
 
     public void getbackButtonClicked(ActionEvent event) throws Exception{
 
@@ -93,6 +100,7 @@ public class CommonTypeViewController implements Initializable {
             nullValue();
             return;
         }
+        temp.get(k-count).setAvailable_units(TableItems.get(temp.get(k-count).getName()));
         if((TableItems.get(temp.get(k-count).getName())-Double.parseDouble(String.valueOf(Unit1.getValue())))>=0){
             try {
                 int getValue=Integer.parseInt(String.valueOf(Unit1.getValue()));
@@ -104,6 +112,7 @@ public class CommonTypeViewController implements Initializable {
                 e.printStackTrace();
             }
         }
+        else alertmessage(temp.get(k-count).getAvailable_units(),temp.get(k-count).getName());
         Unit1.getSelectionModel().clearSelection();
 
     }
@@ -112,6 +121,7 @@ public class CommonTypeViewController implements Initializable {
             nullValue();
             return;
         }
+        temp.get(k-count).setAvailable_units(TableItems.get(temp.get(k-count+1).getName()));
         if ((TableItems.get(temp.get(k-count+1).getName()) - Double.parseDouble(String.valueOf(Unit2.getValue()))) >= 0) {
             try {
                 int getValue=Integer.parseInt(String.valueOf(Unit2.getValue()));
@@ -122,6 +132,7 @@ public class CommonTypeViewController implements Initializable {
                 System.out.println(e);
             }
         }
+        else alertmessage(temp.get(k-count+1).getAvailable_units(),temp.get(k-count+1).getName());
         Unit2.getSelectionModel().clearSelection();
     }
     public void AddToCartButton3Clicked()
@@ -130,6 +141,7 @@ public class CommonTypeViewController implements Initializable {
             nullValue();
             return;
         }
+        temp.get(k-count).setAvailable_units(TableItems.get(temp.get(k-count+2).getName()));
         if((TableItems.get(temp.get(k-count+2).getName())-Double.parseDouble(String.valueOf(Unit3.getValue())))>=0){
             try {
                 int getValue=Integer.parseInt(String.valueOf(Unit3.getValue()));
@@ -141,6 +153,7 @@ public class CommonTypeViewController implements Initializable {
                 System.out.println(e);
             }
         }
+        else alertmessage(temp.get(k-count+2).getAvailable_units(),temp.get(k-count+2).getName());
         Unit3.getSelectionModel().clearSelection();
     }
 
@@ -149,6 +162,7 @@ public class CommonTypeViewController implements Initializable {
             nullValue();
             return;
         }
+        temp.get(k-count).setAvailable_units(TableItems.get(temp.get(k-count+3).getName()));
         if ((TableItems.get(temp.get(k-count+3).getName())- Double.parseDouble(String.valueOf(Unit4.getValue()))) >= 0) {
             try {
                 int getValue=Integer.parseInt(String.valueOf(Unit4.getValue()));
@@ -159,6 +173,7 @@ public class CommonTypeViewController implements Initializable {
                 System.out.println(e);
             }
         }
+        else alertmessage(temp.get(k-count+3).getAvailable_units(),temp.get(k-count+3).getName());
         Unit4.getSelectionModel().clearSelection();
     }
     public void AddToCartButton5Clicked() {
@@ -166,6 +181,7 @@ public class CommonTypeViewController implements Initializable {
             nullValue();
             return;
         }
+        temp.get(k-count+4).setAvailable_units(TableItems.get(temp.get(k-count+4).getName()));
         if ((TableItems.get(temp.get(k-count+4).getName())- Double.parseDouble(String.valueOf(Unit5.getValue()))) >= 0) {
             try {
                 int getValue=Integer.parseInt(String.valueOf(Unit5.getValue()));
@@ -176,6 +192,7 @@ public class CommonTypeViewController implements Initializable {
                 System.out.println(e);
             }
         }
+        else alertmessage(temp.get(k-count+4).getAvailable_units(),temp.get(k-count+4).getName());
         Unit5.getSelectionModel().clearSelection();
     }
 
@@ -228,7 +245,8 @@ public class CommonTypeViewController implements Initializable {
         ObservableList<product> allProducts,productSelected;
         allProducts = FoodTable.getItems();
         productSelected = FoodTable.getSelectionModel().getSelectedItems();
-       // System.out.println(productSelected.toString());
+        Double amount=TableItems.get(productSelected.get(0).getName())+productSelected.get(0).getUnit();
+        TableItems.put(productSelected.get(0).getName(),amount);
         if(productSelected.toString().equals("[]")) return;
         Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
         alert.setHeaderText(null);
@@ -440,7 +458,6 @@ public class CommonTypeViewController implements Initializable {
         goBackButton.setStyle("-fx-background-color: #232020;");
         ConfirmButton.setStyle("-fx-background-color: #232020;");
         DeleteItemButton.setStyle("-fx-background-color: #232020;");
-        //NameColumn.getStyleClass().add("columncell");
         FoodTable.setStyle("-fx-border-color: #232020;");
         Unit1.setStyle("-fx-background-color: #fce28c;");
         Unit2.setStyle("-fx-background-color: #fce28c;");

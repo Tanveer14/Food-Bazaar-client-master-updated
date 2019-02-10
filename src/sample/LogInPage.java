@@ -147,7 +147,8 @@ public class LogInPage implements Initializable{
         }else{
            // Labelcheck.setText("you have left some options empty");
             Alert alert=new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("you have left some options empty");
+            alert.setHeaderText(null);
+            alert.setContentText("you have left some options empty");
             alert.showAndWait();
         }
 

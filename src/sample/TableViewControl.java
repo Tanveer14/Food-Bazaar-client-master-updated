@@ -41,7 +41,6 @@ public class TableViewControl {
     {
         productList=ItemList;
         table.setItems(productList);
-
     }
 
 

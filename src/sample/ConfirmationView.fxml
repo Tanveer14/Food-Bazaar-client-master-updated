@@ -8,15 +8,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="bgorder" stylesheets="@bgOrder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ConfirmationViewController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="loginbg" stylesheets="@bglogin.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ConfirmationViewController">
    <children>
-      <Label alignment="CENTER" layoutX="254.0" layoutY="60.0" prefHeight="71.0" prefWidth="293.0" text="Order Details:" textFill="#8d3d3d">
+      <Label fx:id="CaptionOrder" alignment="CENTER" layoutX="262.0" layoutY="54.0" prefHeight="71.0" prefWidth="293.0" text="Order Details:" textFill="ORANGE">
          <font>
-            <Font name="System Bold Italic" size="25.0" />
+            <Font name="Agency FB Bold" size="45.0" />
          </font>
       </Label>
-      <Button fx:id="homeButton" layoutX="89.0" layoutY="74.0" mnemonicParsing="false" onAction="#homeButtonClicked" prefHeight="30.0" prefWidth="65.0" text="Home" />
-      <ScrollPane layoutX="89.0" layoutY="120.0" prefHeight="342.0" prefWidth="622.0">
+      <Button fx:id="homeButton" layoutX="383.0" layoutY="556.0" mnemonicParsing="false" onAction="#homeButtonClicked" prefHeight="30.0" prefWidth="65.0" text="Home" textFill="ORANGE" />
+      <ScrollPane layoutX="104.0" layoutY="190.0" prefHeight="342.0" prefWidth="622.0">
          <content>
             <Label fx:id="ConfirmationMessage" alignment="TOP_LEFT" textFill="#363030">
                <font>
