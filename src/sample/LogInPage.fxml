@@ -11,10 +11,13 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="bgloginimage" stylesheets="@bglogin.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LogInPage">
    <right>
-      <Button fx:id="goBackButton" mnemonicParsing="false" onAction="#goBackButtonClicked" text="Go Back" BorderPane.alignment="TOP_RIGHT">
+      <Button fx:id="goBackButton" mnemonicParsing="false" onAction="#goBackButtonClicked" text="Go Back" textFill="ORANGE" BorderPane.alignment="TOP_RIGHT">
          <BorderPane.margin>
             <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
          </BorderPane.margin>
+         <font>
+            <Font name="Agency FB Bold" size="15.0" />
+         </font>
       </Button>
    </right>
    <center>
@@ -67,22 +70,14 @@
                         </TextField>
                      </children>
                   </HBox>
-                  <Button fx:id="OrderButton" mnemonicParsing="false" onAction="#OrderButtonClicked" prefHeight="47.0" prefWidth="200.0" text="Confirm Order">
+                  <Button fx:id="OrderButton" mnemonicParsing="false" onAction="#OrderButtonClicked" prefHeight="47.0" prefWidth="200.0" text="Confirm Order" textFill="ORANGE">
                      <font>
-                        <Font name="Times New Roman" size="20.0" />
+                        <Font name="Agency FB Bold" size="26.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Label fx:id="Labelcheck" prefHeight="40.0" prefWidth="450.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="100.0" />
-                     </VBox.margin>
-                  </Label>
       
                </children>
                <BorderPane.margin>

@@ -167,11 +167,15 @@ public class LogInPage implements Initializable{
             System.out.println(ex);
         }*/
 
-        CustomerName.setText("");
-        CustomerMail.setText("");
-        CustomerPhone.setText("");
-        CustomerAddress.setText("");
-        Labelcheck.setText("");
+       try {
+           CustomerName.setText("");
+           CustomerMail.setText("");
+           CustomerPhone.setText("");
+           CustomerAddress.setText("");
+           Labelcheck.setText("");
+       }catch (Exception e2){
+
+       }
 
 
 
@@ -192,6 +196,8 @@ public class LogInPage implements Initializable{
         //Image icon=new Image(getClass().getResourceAsStream("icon.png"));
         gobackPage=CommonTypeViewController.Currentpage;
 
+        goBackButton.setStyle("-fx-background-color: #232020;"+"-fx-border-color: ORANGE");
+        OrderButton.setStyle("-fx-background-color: #232020;"+"-fx-border-color: ORANGE");
 
         try {
             socket=new Socket("localhost",4444);
