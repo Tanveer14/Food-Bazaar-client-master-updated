@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 
 public class ConfirmationViewController implements Initializable {
    @FXML
-   public Label ConfirmationMessage,CaptionOrder;
+   public Label ConfirmationMessage,CaptionOrder,InfoLabel;
 
     @FXML Button homeButton;
 
@@ -30,6 +30,7 @@ public class ConfirmationViewController implements Initializable {
         ConfirmationMessage.setText(LogInPage.ConfirmationMessage);
         CaptionOrder.setStyle("-fx-background-color: #232020;"+"-fx-border-color: ORANGE");
         homeButton.setStyle("-fx-background-color: #232020;"+"-fx-border-color: ORANGE");
+        InfoLabel.setStyle("-fx-background-color: #232020;"+"-fx-border-color: ORANGE");
     }
 }
 

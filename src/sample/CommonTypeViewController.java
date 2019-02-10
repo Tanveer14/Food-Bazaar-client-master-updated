@@ -72,8 +72,7 @@ public class CommonTypeViewController implements Initializable {
         }
         else {
             Alert alert=new Alert(Alert.AlertType.WARNING);
-            //alert.setHeaderText("CART IS EMPTY ! ! !");
-
+            alert.setHeaderText(null);
             alert.setContentText("Cart cannot be empty .");
             alert.showAndWait();
         }
@@ -204,6 +203,7 @@ public class CommonTypeViewController implements Initializable {
         double newUnit=e.getNewValue();
         if(newUnit<=0){
             Alert alert=new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
             alert.setContentText("Unit of an item cannot be zero or negative. If you intend to remove the selected item, " +
                     "press the Delete Item button .");
             alert.showAndWait();
@@ -211,6 +211,7 @@ public class CommonTypeViewController implements Initializable {
         }
         else if(newUnit>=5){
             Alert alert=new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
             alert.setContentText("You cannot order more than 5 Unit of an item at a time .");
             alert.showAndWait();
             newUnit=5;
@@ -242,26 +243,33 @@ public class CommonTypeViewController implements Initializable {
 
     public void DeleteButtonClicked()
     {
-        ObservableList<product> allProducts,productSelected;
-        allProducts = FoodTable.getItems();
-        productSelected = FoodTable.getSelectionModel().getSelectedItems();
-        Double amount=TableItems.get(productSelected.get(0).getName())+productSelected.get(0).getUnit();
-        TableItems.put(productSelected.get(0).getName(),amount);
-        if(productSelected.toString().equals("[]")) return;
-        Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setHeaderText(null);
-        alert.setContentText("Are you sure you want to remove this item from your cart?");
-        Optional<ButtonType> action=alert.showAndWait();
-        if(action.get()==ButtonType.OK) {
-            productSelected.forEach(allProducts::remove);
-            totalPrice = 0;
-            for (product p : FoodTable.getItems()
-            ) {
+       try{
+           ObservableList<product> allProducts,productSelected;
+           allProducts = FoodTable.getItems();
+           productSelected = FoodTable.getSelectionModel().getSelectedItems();
+           Double amount=TableItems.get(productSelected.get(0).getName())+productSelected.get(0).getUnit();
+           TableItems.put(productSelected.get(0).getName(),amount);
+           if(productSelected.toString().equals("[]")) return;
+           Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
+           alert.setHeaderText(null);
+           alert.setContentText("Are you sure you want to remove this item from your cart?");
+           Optional<ButtonType> action=alert.showAndWait();
+           if(action.get()==ButtonType.OK) {
+               productSelected.forEach(allProducts::remove);
+               totalPrice = 0;
+               for (product p : FoodTable.getItems()
+               ) {
 
-                totalPrice += p.getPrice();
-            }
-            TotalPriceValue.setText(String.valueOf(totalPrice));
-        }
+                   totalPrice += p.getPrice();
+               }
+               TotalPriceValue.setText(String.valueOf(totalPrice));
+           }
+       }catch (Exception ex){
+           Alert alert=new Alert(Alert.AlertType.WARNING);
+           alert.setHeaderText(null);
+           alert.setContentText("No item is selected !");
+           alert.showAndWait();
+       }
     }
 
     public void nextButtonClicked() throws Exception{

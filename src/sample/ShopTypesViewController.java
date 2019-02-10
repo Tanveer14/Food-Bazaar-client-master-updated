@@ -112,7 +112,7 @@ public class ShopTypesViewController implements Initializable {
     {
         if(idtext.getText().equals("")){
             Alert alert=new Alert(Alert.AlertType.ERROR);
-            //alert.setHeaderText("Order Status");
+            alert.setHeaderText(null);
             alert.setContentText("ID cannot be empty!");
             alert.showAndWait();
         }else {
@@ -130,7 +130,7 @@ public class ShopTypesViewController implements Initializable {
                 if(CustomerOrder.getStatus().equals("Invalid ID")){
                     //alertbox
                     Alert alert=new Alert(Alert.AlertType.ERROR);
-                   // alert.setHeaderText("Order Status");
+                    alert.setHeaderText(null);
                     alert.setContentText(CustomerOrder.getStatus()+" !");
                     alert.showAndWait();
                     System.out.println(CustomerOrder.getStatus());
@@ -176,6 +176,6 @@ public class ShopTypesViewController implements Initializable {
         FoodType.getItems().addAll(types);
        // FoodType.setStyle("-fx-text-fill: #ffa500;");
 
-        CheckButton.setStyle("-fx-background-color: #232020;");
+        CheckButton.setStyle("-fx-background-color: #232020;"+"-fx-border-color: #fce28c;");
     }
 }

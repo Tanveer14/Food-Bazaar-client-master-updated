@@ -41,14 +41,21 @@ public class LogInPage implements Initializable{
     public void setCustomerAddress() {}
 
     public void goBackButtonClicked(ActionEvent event) throws Exception{
-        Alert alert=new Alert(Alert.AlertType.WARNING);
-        alert.setHeaderText(null);
-        alert.setContentText("If you go back, your order will be cancelled and your cart will be cleared");
-        Optional<ButtonType> action=alert.showAndWait();
-        if(action.get()==ButtonType.OK) {
-            Parent subPage = FXMLLoader.load(getClass().getResource("CommonTypeView.fxml"));
-            Common.ButtonClicked(event, subPage);
+        try{
+            Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText(null);
+            alert.setContentText("If you go back, your order will be cancelled and your cart will be cleared");
+            Optional<ButtonType> action=alert.showAndWait();
+            if(action.get()==ButtonType.OK) {
+                Parent subPage = FXMLLoader.load(getClass().getResource("CommonTypeView.fxml"));
+                Common.ButtonClicked(event, subPage);
+            }
+        }catch (Exception e)
+        {
+
         }
+
     }
 
     public boolean CheckAChar(String str,char c)
@@ -138,7 +145,8 @@ public class LogInPage implements Initializable{
                 //Labelcheck.setText("Email Address or Contact No Not Valid");
 
                 Alert alert=new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Email Address or Contact No Not Valid");
+                alert.setHeaderText(null);
+                alert.setContentText("Email Address or Contact No Not Valid");
                 alert.showAndWait();
             }
 

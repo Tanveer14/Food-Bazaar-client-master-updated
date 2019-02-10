@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="loginbg" stylesheets="@bglogin.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ConfirmationViewController">
    <children>
-      <Label fx:id="CaptionOrder" alignment="CENTER" layoutX="263.0" layoutY="47.0" prefHeight="65.0" prefWidth="293.0" text="Order Details:" textFill="ORANGE">
+      <Label fx:id="CaptionOrder" alignment="CENTER" layoutX="303.0" layoutY="46.0" prefHeight="65.0" text="Order Details:" textFill="ORANGE">
          <font>
             <Font name="Agency FB Bold" size="45.0" />
          </font>
@@ -18,17 +18,20 @@
       <Button fx:id="homeButton" layoutX="377.0" layoutY="540.0" mnemonicParsing="false" onAction="#homeButtonClicked" prefHeight="30.0" prefWidth="65.0" text="Home" textFill="ORANGE">
          <font>
             <Font name="Agency FB Bold" size="18.0" />
-         </font></Button>
+         </font>
+      </Button>
       <ScrollPane layoutX="89.0" layoutY="183.0" prefHeight="342.0" prefWidth="622.0">
          <content>
-            <Label fx:id="ConfirmationMessage" alignment="TOP_LEFT" textFill="#363030">
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </padding>
-            </Label>
+            <AnchorPane>
+               <children>
+                  <Label layoutX="26.0" layoutY="27.0" text="Customer Name" />
+                  <Label layoutX="26.0" layoutY="69.0" text="Label" />
+                  <Label layoutX="26.0" layoutY="105.0" text="Label" />
+                  <Label layoutX="26.0" layoutY="130.0" text="Label" />
+                  <Label layoutX="26.0" layoutY="161.0" text="Label" />
+                  <ListView layoutX="144.0" layoutY="122.0" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </AnchorPane>
          </content>
       </ScrollPane>
       <Label fx:id="InfoLabel" alignment="CENTER" layoutX="227.0" layoutY="126.0" prefHeight="34.0" text="You need to keep the Order Id to receive the order" textFill="#f09b0a">
