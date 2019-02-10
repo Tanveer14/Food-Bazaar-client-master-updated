@@ -25,7 +25,7 @@ public class LogInPage implements Initializable{
     @FXML private Button OrderButton;
     @FXML private Button goBackButton;
     @FXML private TextArea CommentBox;
-    @FXML private Label Labelcheck;
+    @FXML private Label Heading,Labelcheck;
 
     private  Socket socket;
 
@@ -205,6 +205,8 @@ public class LogInPage implements Initializable{
 
         goBackButton.setStyle("-fx-background-color: #232020;"+"-fx-border-color: ORANGE");
         OrderButton.setStyle("-fx-background-color: #232020;"+"-fx-border-color: ORANGE");
+        Heading.setStyle("-fx-background-color: #232020;"+"-fx-border-color: ORANGE");
+
 
         try {
             socket=new Socket("localhost",4444);
