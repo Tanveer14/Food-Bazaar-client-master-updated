@@ -112,7 +112,7 @@ public class ShopTypesViewController implements Initializable {
     {
         if(idtext.getText().equals("")){
             Alert alert=new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Order Status");
+            //alert.setHeaderText("Order Status");
             alert.setContentText("ID cannot be empty!");
             alert.showAndWait();
         }else {
@@ -129,9 +129,9 @@ public class ShopTypesViewController implements Initializable {
                 CustomerOrder.setName("naeem");*/
                 if(CustomerOrder.getStatus().equals("Invalid ID")){
                     //alertbox
-                    Alert alert=new Alert(Alert.AlertType.WARNING);
-                    alert.setHeaderText("Order Status");
-                    alert.setContentText(CustomerOrder.getStatus());
+                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                   // alert.setHeaderText("Order Status");
+                    alert.setContentText(CustomerOrder.getStatus()+" !");
                     alert.showAndWait();
                     System.out.println(CustomerOrder.getStatus());
                 }
@@ -174,7 +174,8 @@ public class ShopTypesViewController implements Initializable {
         //tor wood color 483121
 
         FoodType.getItems().addAll(types);
-        FoodType.setStyle("-fx-background-color: #232020;");
+       // FoodType.setStyle("-fx-text-fill: #ffa500;");
+
         CheckButton.setStyle("-fx-background-color: #232020;");
     }
 }

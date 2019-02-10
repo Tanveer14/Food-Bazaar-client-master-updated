@@ -13,6 +13,7 @@ import java.net.Socket;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -40,8 +41,14 @@ public class LogInPage implements Initializable{
     public void setCustomerAddress() {}
 
     public void goBackButtonClicked(ActionEvent event) throws Exception{
-        Parent subPage= FXMLLoader.load(getClass().getResource("CommonTypeView.fxml"));
-        Common.ButtonClicked(event,subPage);
+        Alert alert=new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText(null);
+        alert.setContentText("If you go back, your order will be cancelled and your cart will be cleared");
+        Optional<ButtonType> action=alert.showAndWait();
+        if(action.get()==ButtonType.OK) {
+            Parent subPage = FXMLLoader.load(getClass().getResource("CommonTypeView.fxml"));
+            Common.ButtonClicked(event, subPage);
+        }
     }
 
     public boolean CheckAChar(String str,char c)
@@ -167,11 +174,15 @@ public class LogInPage implements Initializable{
             System.out.println(ex);
         }*/
 
-        CustomerName.setText("");
-        CustomerMail.setText("");
-        CustomerPhone.setText("");
-        CustomerAddress.setText("");
-        Labelcheck.setText("");
+       try {
+           CustomerName.setText("");
+           CustomerMail.setText("");
+           CustomerPhone.setText("");
+           CustomerAddress.setText("");
+           Labelcheck.setText("");
+       }catch (Exception e2){
+
+       }
 
 
 
@@ -192,6 +203,8 @@ public class LogInPage implements Initializable{
         //Image icon=new Image(getClass().getResourceAsStream("icon.png"));
         gobackPage=CommonTypeViewController.Currentpage;
 
+        goBackButton.setStyle("-fx-background-color: #232020;"+"-fx-border-color: ORANGE");
+        OrderButton.setStyle("-fx-background-color: #232020;"+"-fx-border-color: ORANGE");
 
         try {
             socket=new Socket("localhost",4444);

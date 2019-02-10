@@ -13,14 +13,14 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="caption" alignment="BASELINE_CENTER" prefHeight="43.0" prefWidth="158.0" textFill="#1b1919">
+            <Label fx:id="caption" alignment="BASELINE_CENTER" prefHeight="43.0" prefWidth="158.0" textFill="#232020">
                <font>
                   <Font name="Arial Bold Italic" size="29.0" />
                </font>
             </Label>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Label fx:id="Label1" prefHeight="90.0" prefWidth="180.0">
+                  <Label fx:id="Label1" prefHeight="90.0" prefWidth="180.0" textFill="#232020">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -33,7 +33,7 @@
                   <VBox fx:id="vbox1" prefHeight="100.0" prefWidth="123.0" spacing="30.0" visible="false">
                      <children>
                         <ComboBox fx:id="Unit1" prefHeight="25.0" prefWidth="114.0" promptText="Select Units" />
-                        <Button fx:id="button1" mnemonicParsing="false" onAction="#AddToCartButton1Clicked" text="Add to Cart" />
+                        <Button fx:id="button1" mnemonicParsing="false" onAction="#AddToCartButton1Clicked" text="Add to Cart" textFill="#fce28c" />
                      </children>
                   </VBox>
                </children>
@@ -43,7 +43,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Label fx:id="Label2" prefHeight="90.0" prefWidth="180.0">
+                  <Label fx:id="Label2" prefHeight="90.0" prefWidth="180.0" textFill="#232020">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -53,7 +53,7 @@
                   <VBox fx:id="vbox2" prefHeight="100.0" prefWidth="123.0" spacing="30.0" visible="false">
                      <children>
                         <ComboBox fx:id="Unit2" prefHeight="25.0" prefWidth="114.0" promptText="Select Units" />
-                        <Button fx:id="button2" mnemonicParsing="false" onAction="#AddToCartButton2Clicked" text="Add to Cart" />
+                        <Button fx:id="button2" mnemonicParsing="false" onAction="#AddToCartButton2Clicked" text="Add to Cart" textFill="#fce28c" />
                      </children>
                   </VBox>
                </children>
@@ -63,7 +63,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Label fx:id="Label3" prefHeight="90.0" prefWidth="180.0">
+                  <Label fx:id="Label3" prefHeight="90.0" prefWidth="180.0" textFill="#232020">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -73,7 +73,7 @@
                   <VBox fx:id="vbox3" prefHeight="100.0" prefWidth="123.0" spacing="30.0" visible="false">
                      <children>
                         <ComboBox fx:id="Unit3" prefHeight="25.0" prefWidth="114.0" promptText="Select Units" />
-                        <Button fx:id="button3" mnemonicParsing="false" onAction="#AddToCartButton3Clicked" text="Add to Cart" />
+                        <Button fx:id="button3" mnemonicParsing="false" onAction="#AddToCartButton3Clicked" text="Add to Cart" textFill="#fce28c" />
                      </children>
                   </VBox>
                </children>
@@ -83,7 +83,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Label fx:id="Label4" prefHeight="90.0" prefWidth="180.0">
+                  <Label fx:id="Label4" prefHeight="90.0" prefWidth="180.0" textFill="#232020">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -93,7 +93,7 @@
                   <VBox fx:id="vbox4" prefHeight="100.0" prefWidth="123.0" spacing="30.0" visible="false">
                      <children>
                         <ComboBox fx:id="Unit4" prefHeight="25.0" prefWidth="114.0" promptText="Select Units" />
-                        <Button fx:id="button4" mnemonicParsing="false" onAction="#AddToCartButton4Clicked" text="Add to Cart" />
+                        <Button fx:id="button4" mnemonicParsing="false" onAction="#AddToCartButton4Clicked" text="Add to Cart" textFill="#fce28c" />
                      </children>
                   </VBox>
                </children>
@@ -103,7 +103,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Label fx:id="Label5" prefHeight="90.0" prefWidth="180.0">
+                  <Label fx:id="Label5" prefHeight="90.0" prefWidth="180.0" textFill="#232020">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -113,7 +113,7 @@
                   <VBox fx:id="vbox5" prefHeight="100.0" prefWidth="123.0" spacing="30.0" visible="false">
                      <children>
                         <ComboBox fx:id="Unit5" prefHeight="25.0" prefWidth="114.0" promptText="Select Units" />
-                        <Button fx:id="button5" mnemonicParsing="false" onAction="#AddToCartButton5Clicked" text="Add to Cart" />
+                        <Button fx:id="button5" mnemonicParsing="false" onAction="#AddToCartButton5Clicked" text="Add to Cart" textFill="#fce28c" />
                      </children>
                   </VBox>
                </children>
@@ -123,9 +123,9 @@
             </HBox>
             <HBox prefHeight="34.0" prefWidth="345.0">
                <children>
-                  <Button fx:id="previousButton" mnemonicParsing="false" onAction="#previousButtonClicked" prefHeight="25.0" prefWidth="172.0" text="&lt;&lt;Previous" visible="false" />
+                  <Button fx:id="previousButton" mnemonicParsing="false" onAction="#previousButtonClicked" prefHeight="25.0" prefWidth="172.0" text="&lt;&lt;Previous" textFill="#fce28c" visible="false" />
                   <Region prefHeight="34.0" prefWidth="186.0" />
-                  <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextButtonClicked" prefHeight="25.0" prefWidth="166.0" text="Next&gt;&gt;" visible="false" />
+                  <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextButtonClicked" prefHeight="25.0" prefWidth="166.0" text="Next&gt;&gt;" textFill="#fce28c" visible="false" />
                </children>
             </HBox>
          </children>
@@ -145,14 +145,14 @@
                      </font>
                   </Label>
                   <Region prefHeight="37.0" prefWidth="119.0" />
-                  <Button mnemonicParsing="false" onAction="#getbackButtonClicked" prefHeight="34.0" prefWidth="89.0" text="Go Back">
+                  <Button fx:id="goBackButton" mnemonicParsing="false" onAction="#getbackButtonClicked" prefHeight="34.0" prefWidth="89.0" text="Go Back" textFill="#fce28c">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
                </children>
             </HBox>
-            <TableView fx:id="FoodTable" prefHeight="410.0" prefWidth="220.0">
+            <TableView fx:id="FoodTable" prefHeight="410.0" prefWidth="220.0" stylesheets="@table.css">
                <columns>
                   <TableColumn fx:id="NameColumn" minWidth="0.0" prefWidth="99.0" text="Product Name" />
                   <TableColumn fx:id="UnitColumn" onEditCommit="#TableUnitEdit" prefWidth="44.0" text="Unit" />
@@ -163,13 +163,13 @@
             </TableView>
             <HBox prefHeight="36.0" prefWidth="205.0" spacing="20.0">
                <children>
-                  <Label prefHeight="21.0" prefWidth="138.0" text="Total Price" textFill="#ee9b0a">
+                  <Label prefHeight="21.0" prefWidth="138.0" text="Total Price" textFill="#232020">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
                   <Region prefHeight="37.0" prefWidth="101.0" />
-                  <Label fx:id="TotalPriceValue" prefHeight="17.0" prefWidth="143.0" textFill="#252001">
+                  <Label fx:id="TotalPriceValue" prefHeight="17.0" prefWidth="143.0" textFill="#232020">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font></Label>
@@ -177,7 +177,7 @@
             </HBox>
             <HBox spacing="25.0">
                <children>
-                  <Button fx:id="DeleteItemButton" mnemonicParsing="false" onAction="#DeleteButtonClicked" prefHeight="34.0" prefWidth="107.0" text="Delete Item">
+                  <Button fx:id="DeleteItemButton" mnemonicParsing="false" onAction="#DeleteButtonClicked" prefHeight="34.0" prefWidth="107.0" text="Delete Item" textFill="#fce28c">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -185,7 +185,7 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="ConfirmButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ConfirmButtonClicked" prefHeight="34.0" prefWidth="111.0" text="Place Order">
+                  <Button fx:id="ConfirmButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ConfirmButtonClicked" prefHeight="34.0" prefWidth="111.0" text="Place Order" textFill="#fce28c">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -207,7 +207,7 @@
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TreeView fx:id="FoodTree" onMouseClicked="#TreeViewClicked" prefHeight="531.0" prefWidth="200.0" />
+            <TreeView fx:id="FoodTree" onMouseClicked="#TreeViewClicked" prefHeight="531.0" prefWidth="200.0" styleClass="myTree" stylesheets="@mytree.css" />
          </children>
       </AnchorPane>
    </left>
