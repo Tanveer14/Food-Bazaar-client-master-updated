@@ -1,8 +1,10 @@
 .jfx-combo-box{
     -fx-background-color:#fce28c;
+    -fx-border-color: #232020;
 }
 
 .jfx-combo-box.label{
     -fx-background-color: WHITE;
     -fx-text-fill: RED;
+
 }
