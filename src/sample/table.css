@@ -1,0 +1,10 @@
+.table-view .column-header .label {
+    -fx-background-color: #232020;
+    -fx-text-fill: #fce28c;
+    -fx-font-weight: bold;
+}
+
+.table-cell.columncell{
+    -fx-background-color: #232020;
+    -fx-text-fill: #fce28c;
+}
