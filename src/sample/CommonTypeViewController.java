@@ -50,6 +50,14 @@ public class CommonTypeViewController implements Initializable {
     ArrayList<product> temp=new ArrayList<>();
     public static ArrayList<product> TableProductList=new ArrayList<>();
 
+
+
+    private static void nullValue()
+    {
+        Alert alert=new Alert(Alert.AlertType.WARNING);
+        alert.setContentText("Yomu didn't select any quantity of item.");
+        alert.showAndWait();
+    }
     public void ConfirmButtonClicked(ActionEvent e) throws IOException {
         Currentpage=caption.getText();
         product demoproduct;
@@ -82,7 +90,10 @@ public class CommonTypeViewController implements Initializable {
 
     public void AddToCartButton1Clicked()
     {
-        if(Unit1.getValue()==null) return;
+        if(Unit1.getValue()==null) {
+            nullValue();
+            return;
+        }
         if((TableItems.get(temp.get(k-count).getName())-Double.parseDouble(String.valueOf(Unit1.getValue())))>=0){
             try {
                 int getValue=Integer.parseInt(String.valueOf(Unit1.getValue()));
@@ -98,7 +109,10 @@ public class CommonTypeViewController implements Initializable {
 
     }
     public void AddToCartButton2Clicked() {
-        if(Unit2.getValue()==null) return;
+        if(Unit2.getValue()==null){
+            nullValue();
+            return;
+        }
         if ((TableItems.get(temp.get(k-count+1).getName()) - Double.parseDouble(String.valueOf(Unit2.getValue()))) >= 0) {
             try {
                 int getValue=Integer.parseInt(String.valueOf(Unit2.getValue()));
@@ -113,7 +127,10 @@ public class CommonTypeViewController implements Initializable {
     }
     public void AddToCartButton3Clicked()
     {
-        if(Unit3.getValue()==null) return;
+        if(Unit3.getValue()==null) {
+            nullValue();
+            return;
+        }
         if((TableItems.get(temp.get(k-count+2).getName())-Double.parseDouble(String.valueOf(Unit3.getValue())))>=0){
             try {
                 int getValue=Integer.parseInt(String.valueOf(Unit3.getValue()));
@@ -129,7 +146,10 @@ public class CommonTypeViewController implements Initializable {
     }
 
     public void AddToCartButton4Clicked() {
-        if(Unit4.getValue()==null) return;
+        if(Unit4.getValue()==null) {
+            nullValue();
+            return;
+        }
         if ((TableItems.get(temp.get(k-count+3).getName())- Double.parseDouble(String.valueOf(Unit4.getValue()))) >= 0) {
             try {
                 int getValue=Integer.parseInt(String.valueOf(Unit4.getValue()));
@@ -143,7 +163,10 @@ public class CommonTypeViewController implements Initializable {
         Unit4.getSelectionModel().clearSelection();
     }
     public void AddToCartButton5Clicked() {
-        if(Unit5.getValue()==null) return;
+        if(Unit5.getValue()==null) {
+            nullValue();
+            return;
+        }
         if ((TableItems.get(temp.get(k-count+4).getName())- Double.parseDouble(String.valueOf(Unit5.getValue()))) >= 0) {
             try {
                 int getValue=Integer.parseInt(String.valueOf(Unit5.getValue()));
@@ -163,8 +186,19 @@ public class CommonTypeViewController implements Initializable {
         productList.addAll(FoodTable.getItems());
         double oldUnit=e.getOldValue();
         double newUnit=e.getNewValue();
-        if(newUnit<=0)newUnit=1;
-        else if(newUnit>=5)newUnit=5;
+        if(newUnit<=0){
+            Alert alert=new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("Unit of an item cannot be zero or negative. If you intend to remove the selected item, " +
+                    "press the Delete Item button .");
+            alert.showAndWait();
+            newUnit=1;
+        }
+        else if(newUnit>=5){
+            Alert alert=new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("You cannot order more than 5 Unit of an item at a time .");
+            alert.showAndWait();
+            newUnit=5;
+        }
         double oldPrice=FoodTable.getSelectionModel().getSelectedItem().getPrice();
         double newPrice=oldPrice/oldUnit*newUnit;
         FoodTable.getItems().get(e.getTablePosition().getRow()).setUnit(newUnit);
@@ -360,6 +394,7 @@ public class CommonTypeViewController implements Initializable {
         FoodTable.setEditable(true);
         UnitColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         PriceColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        PriceColumn.setEditable(false);
         totalPrice=0;
         FoodTable.getItems().clear();
         TableProductList.clear();
