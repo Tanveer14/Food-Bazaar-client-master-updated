@@ -23,7 +23,7 @@
          <content>
             <Label fx:id="ConfirmationMessage" alignment="TOP_LEFT" textFill="#363030">
                <font>
-                  <Font size="15.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
                <padding>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
