@@ -218,7 +218,7 @@ public class CommonTypeViewController implements Initializable {
         else if(TableItems.get(productSelected.get(0).getName())+oldUnit-newUnit<0){
             Alert alert=new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText(null);
-            alert.setContentText("The amount of unit selected fo this item is not available in out stock.");
+            alert.setContentText("The amount of unit selected for this item is not available in our stock.");
             alert.showAndWait();
             newUnit=oldUnit;
         }
