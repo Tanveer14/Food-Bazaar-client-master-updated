@@ -202,6 +202,11 @@ public class CommonTypeViewController implements Initializable {
         productList.addAll(FoodTable.getItems());
         double oldUnit=e.getOldValue();
         double newUnit=e.getNewValue();
+
+        ObservableList<product> productSelected;
+        productSelected = FoodTable.getSelectionModel().getSelectedItems();
+
+
         if(newUnit<=0){
             Alert alert=new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText(null);
@@ -210,6 +215,13 @@ public class CommonTypeViewController implements Initializable {
             alert.showAndWait();
             newUnit=1;
         }
+        else if(TableItems.get(productSelected.get(0).getName())+oldUnit-newUnit<0){
+            Alert alert=new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setContentText("The amount of unit selected fo this item is not available in out stock.");
+            alert.showAndWait();
+            newUnit=oldUnit;
+        }
         else if(newUnit>=5){
             Alert alert=new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText(null);
@@ -217,6 +229,11 @@ public class CommonTypeViewController implements Initializable {
             alert.showAndWait();
             newUnit=5;
         }
+
+        Double amount=TableItems.get(productSelected.get(0).getName())+oldUnit-newUnit;
+        System.out.println(amount);
+        TableItems.put(productSelected.get(0).getName(), amount);
+
         double oldPrice=FoodTable.getSelectionModel().getSelectedItem().getPrice();
         double newPrice=oldPrice/oldUnit*newUnit;
         FoodTable.getItems().get(e.getTablePosition().getRow()).setUnit(newUnit);
