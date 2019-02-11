@@ -139,8 +139,15 @@ public class LogInPage implements Initializable{
                 {
                     System.out.println(ex);
                 }
+
                 Parent newsceneparent= FXMLLoader.load(getClass().getResource("ConfirmationView.fxml"));
                 Common.ButtonClicked(e,newsceneparent);
+                CustomerPhone.clear();
+                CustomerName.clear();
+                CustomerMail.clear();
+                CustomerPhone.clear();
+                CustomerAddress.clear();
+
             }else {
                 //Labelcheck.setText("Email Address or Contact No Not Valid");
 
@@ -152,11 +159,7 @@ public class LogInPage implements Initializable{
 
 
 
-            CustomerPhone.clear();
-            CustomerName.clear();
-            CustomerMail.clear();
-            CustomerPhone.clear();
-            CustomerAddress.clear();
+
 
 
 
