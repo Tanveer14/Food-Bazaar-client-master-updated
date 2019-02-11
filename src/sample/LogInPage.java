@@ -152,6 +152,14 @@ public class LogInPage implements Initializable{
 
 
 
+            CustomerPhone.clear();
+            CustomerName.clear();
+            CustomerMail.clear();
+            CustomerPhone.clear();
+            CustomerAddress.clear();
+
+
+
         }else{
            // Labelcheck.setText("you have left some options empty");
             Alert alert=new Alert(Alert.AlertType.ERROR);
@@ -183,15 +191,7 @@ public class LogInPage implements Initializable{
             System.out.println(ex);
         }*/
 
-       try {
-           CustomerName.setText("");
-           CustomerMail.setText("");
-           CustomerPhone.setText("");
-           CustomerAddress.setText("");
-           Labelcheck.setText("");
-       }catch (Exception e2){
 
-       }
 
 
 

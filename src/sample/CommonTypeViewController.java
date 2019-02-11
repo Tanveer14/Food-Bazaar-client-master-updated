@@ -54,6 +54,7 @@ public class CommonTypeViewController implements Initializable {
     private static void nullValue()
     {
         Alert alert=new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText(null);
         alert.setContentText("You didn't select any quantity of item.");
         alert.showAndWait();
     }

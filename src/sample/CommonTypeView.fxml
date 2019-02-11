@@ -207,7 +207,7 @@
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TreeView fx:id="FoodTree" onMouseClicked="#TreeViewClicked" prefHeight="531.0" prefWidth="200.0" styleClass="myTree" stylesheets="@mytree.css" />
+            <TreeView fx:id="FoodTree" onMouseClicked="#TreeViewClicked" prefHeight="531.0" prefWidth="200.0" stylesheets="@mytree.css" />
          </children>
       </AnchorPane>
    </left>
