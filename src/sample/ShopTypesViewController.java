@@ -25,6 +25,7 @@ public class ShopTypesViewController implements Initializable {
 
     @FXML
     ComboBox<String> FoodType;
+    ArrayList<String> types=new ArrayList<>();
     @FXML
     Label CommentLabel;
     @FXML
@@ -36,7 +37,7 @@ public class ShopTypesViewController implements Initializable {
     /*public void SellerButtonClicked(ActionEvent event) throws Exception{
        // String s="Password "+password.getText();
         /*try{
-            socket=new Socket("localhost",4444);
+            socket=new Socket("172.26.15.172",4444);
             ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream oi=new ObjectInputStream(socket.getInputStream());
             outtoServer.writeObject(s);
@@ -61,6 +62,8 @@ public class ShopTypesViewController implements Initializable {
 
 
     }*/
+
+
 
     public void ReadLabel() throws Exception{
         CommentLabel.setDisable(false);
@@ -118,7 +121,7 @@ public class ShopTypesViewController implements Initializable {
         }else {
             String temp="CheckOrder "+idtext.getText();
             try{
-                socket=new Socket("localhost",4444);
+                socket=new Socket("172.26.15.172",4444);
                 ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
                 ObjectInputStream oinfromserver=new ObjectInputStream(socket.getInputStream());
                 outtoServer.writeObject(temp);
@@ -158,10 +161,8 @@ public class ShopTypesViewController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         //Image icon=new Image(getClass().getResourceAsStream("icon.png"));
         //treeViewControl.setTreeview(FoodTree);
-
-        ArrayList<String> types=new ArrayList<>();
         try{
-            socket=new Socket("localhost",4444);
+            socket=new Socket("172.26.15.172",4444);
             ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream oi=new ObjectInputStream(socket.getInputStream());
             String s="type list";
@@ -177,5 +178,6 @@ public class ShopTypesViewController implements Initializable {
        // FoodType.setStyle("-fx-text-fill: #ffa500;");
 
         CheckButton.setStyle("-fx-background-color: #232020;"+"-fx-border-color: #fce28c;");
+
     }
 }
