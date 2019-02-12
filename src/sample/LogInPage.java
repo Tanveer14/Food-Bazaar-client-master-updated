@@ -134,8 +134,7 @@ public class LogInPage implements Initializable{
                     Out.writeObject(customer);
                     System.out.println("written");
                     Out.flush();
-                    Out.close();
-                    socket.close();
+
                     System.out.println("closed");
 
                 }catch (Exception ex)
