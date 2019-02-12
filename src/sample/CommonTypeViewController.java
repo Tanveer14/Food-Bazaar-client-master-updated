@@ -65,7 +65,6 @@ public class CommonTypeViewController implements Initializable {
         for(int i=0;i<FoodTable.getItems().size();i++){
             demoproduct=FoodTable.getItems().get(i);
             TableProductList.add(demoproduct);
-            System.out.println(TableProductList.get(i));
         }
         if(TableProductList.size()!=0){
             FoodTable.getItems().clear();
@@ -275,7 +274,6 @@ public class CommonTypeViewController implements Initializable {
         }
 
         Double amount=TableItems.get(productSelected.get(0).getName())+oldUnit-newUnit;
-        System.out.println(amount);
         TableItems.put(productSelected.get(0).getName(), amount);
 
         double oldPrice=FoodTable.getSelectionModel().getSelectedItem().getPrice();

@@ -27,70 +27,10 @@ public class ShopTypesViewController implements Initializable {
     ComboBox<String> FoodType;
     ArrayList<String> types=new ArrayList<>();
     @FXML
-    Label CommentLabel;
-    @FXML
     TextField idtext;
     @FXML Button CheckButton;
 
     public static String SelectedType=null;
-
-    /*public void SellerButtonClicked(ActionEvent event) throws Exception{
-       // String s="Password "+password.getText();
-        /*try{
-            socket=new Socket("localhost",4444);
-            ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
-            ObjectInputStream oi=new ObjectInputStream(socket.getInputStream());
-            outtoServer.writeObject(s);
-            String returnmessage=(String) oi.readObject();
-            System.out.println(returnmessage);
-
-        }catch(Exception ex){
-            System.out.println(ex);
-        }
-        String s=password.getText();
-        password.setText("");
-        if(s.equals("NaMa1405")){
-            Parent subPage= FXMLLoader.load(getClass().getResource("OwnerIn.fxml"));
-            Common.ButtonClicked(event,subPage);
-        }
-        else{
-            Alert alert=new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Invalid password");
-            alert.showAndWait();
-        }
-
-
-    }*/
-
-
-
-    public void ReadLabel() throws Exception{
-        CommentLabel.setDisable(false);
-    }
-
-   /* @FXML
-    TreeView<String> FoodTree;
-
-    @FXML public void FruitsButtonClicked(ActionEvent event) throws IOException{
-        Parent FruitPage= FXMLLoader.load(getClass().getResource("FruitsView.fxml"));
-        Common.ButtonClicked(event,FruitPage);
-    }
-
-    @FXML public void VegetablesButtonClicked(ActionEvent event) throws Exception{
-        Parent VegPage= FXMLLoader.load(getClass().getResource("VegetablesView.fxml"));
-        Common.ButtonClicked(event,VegPage);
-    }
-
-    @FXML public void StaplesButtonClicked(ActionEvent event) throws Exception{
-        Parent StapPage= FXMLLoader.load(getClass().getResource("StaplesView.fxml"));
-        Common.ButtonClicked(event,StapPage);
-    }
-
-    @FXML public void MFButtonClicked(ActionEvent event) throws Exception{
-        Parent MFPage= FXMLLoader.load(getClass().getResource("Meat&Fish.fxml"));
-        Common.ButtonClicked(event,MFPage);
-    }*/
 
 
     public void FoodTypeSelected(ActionEvent event) throws Exception{
@@ -159,8 +99,7 @@ public class ShopTypesViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //Image icon=new Image(getClass().getResourceAsStream("icon.png"));
-        //treeViewControl.setTreeview(FoodTree);
+
         try{
             socket=new Socket("localhost",4444);
             ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());

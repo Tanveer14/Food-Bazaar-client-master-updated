@@ -129,12 +129,9 @@ public class LogInPage implements Initializable{
 
                 try{
                     socket=new Socket("localhost",4444);
-                    System.out.println("socket opened");
                     ObjectOutputStream Out=new ObjectOutputStream(socket.getOutputStream());
                     Out.writeObject(customer);
-                    System.out.println("written");
                     Out.flush();
-                    System.out.println("closed");
 
                 }catch (Exception ex)
                 {

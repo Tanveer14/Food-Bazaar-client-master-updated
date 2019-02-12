@@ -29,59 +29,10 @@ public class Common {
         window.show();
 
     }
-    public static void ButtonClicked(MouseEvent event, Parent page){
-        Scene View=new Scene(page);
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(View);
-        window.show();
-
-    }
-
-    public static void fileupdate(File file,ArrayList<product> t){
-        try {
-            FileOutputStream fo = new FileOutputStream(file);
-            ObjectOutputStream oo = new ObjectOutputStream(fo);
-            for (product i : t) {
-                oo.writeObject(i);
-            }
-            oo.close();
-            fo.close();
-        }catch(FileNotFoundException ff){
-            System.out.println( ff);
-        }catch(IOException io){
-            System.out.println(io);
-        }
-    }
 
 
-    public static ArrayList<product> ownerFileInput(File file){
-        FileInputStream fi;
-        ObjectInputStream ob;
-        ArrayList<product> type=new ArrayList<>();
-        try{
-            fi=new FileInputStream(file);
-            ob=new ObjectInputStream(fi);
-            try{
-                while(true){
-                    product f=(product)ob.readObject();
-                    type.add(f);
-                }
-            }catch(EOFException ex){
-
-            }
-            ob.close();
-            fi.close();
-        }catch(FileNotFoundException ex){
-            System.out.println(ex);
-        }catch(IOException el){
-            System.out.println(el);
-        }catch(ClassNotFoundException cl){
-            System.out.println(cl);
-        }
 
 
-        return type;
-    }
 
 
    /* public static ArrayList<Item> fileinput(File file){
@@ -113,23 +64,7 @@ public class Common {
         return type;
     }*/
 
-    public static ArrayList<String> OwnerFile(ArrayList<String> ar, File file)
-    {
-        try {
-            FileInputStream fi=new FileInputStream(file);
-            ObjectInputStream oi=new ObjectInputStream(fi);
-            ar= (ArrayList<String>) oi.readObject();
 
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return ar;
-    }
 
 
     public static ArrayList<String> choices(){
@@ -142,17 +77,7 @@ public class Common {
         return choice;
     }
 
-    public static void TreeViewSelect(TreeView FoodTree)
-    {
-       /* if(FoodTree.getSelectionModel().getSelectedItem()=="Vegetables") FoodTree.setOnMouseClicked(e->{
-            Parent newsceneparent= FXMLLoader.load(getClass().getResource("LogInPage.fxml"));
-            ButtonClicked(e,);
-        });
-            if(FoodTree.getSelectionModel().getSelectedItem()=="Fish N Meat")
-                if(FoodTree.getSelectionModel().getSelectedItem()=="Fruits")
-                    if(FoodTree.getSelectionModel().getSelectedItem()=="Staples")*/
 
-    }
 
 
     public static void AddToTable(Label label,Label TypeLabel,Label totalPriceLabel, ComboBox unit, TableView FoodTable, ObservableList<product> productList)
@@ -169,7 +94,6 @@ public class Common {
         String []lastlabel1=labelInfo[2].split(" ");
         String unitText=(String)unit.getValue();
         double unitVal=Double.parseDouble(unitText);
-        System.out.println(unitVal+" "+Double.parseDouble(lastLabel[0]));
         product.setUnit(unitVal);
         product.setPrice(Double.parseDouble(lastLabel[0])*product.getUnit());
         product.setUnit_type(lastlabel1[1]);
