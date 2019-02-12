@@ -365,7 +365,7 @@ public class CommonTypeViewController implements Initializable {
     {
 
         try{
-            socket=new Socket("172.26.15.172",4444);
+            socket=new Socket("localhost",4444);
             ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream oi=new ObjectInputStream(socket.getInputStream());
             outtoServer.writeObject(strtemp);
@@ -406,7 +406,7 @@ public class CommonTypeViewController implements Initializable {
 
         ArrayList<String> types=new ArrayList<>();
         try{
-            socket=new Socket("172.26.15.172",4444);
+            socket=new Socket("localhost",4444);
             ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream oi=new ObjectInputStream(socket.getInputStream());
             String s="type list";
