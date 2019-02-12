@@ -154,10 +154,10 @@
             </HBox>
             <TableView fx:id="FoodTable" prefHeight="410.0" prefWidth="220.0" stylesheets="@table.css">
                <columns>
-                  <TableColumn fx:id="NameColumn" minWidth="0.0" prefWidth="99.0" text="Product Name" />
+                  <TableColumn fx:id="NameColumn" minWidth="0.0" prefWidth="92.0" text="Product Name" />
                   <TableColumn fx:id="UnitColumn" onEditCommit="#TableUnitEdit" prefWidth="44.0" text="Unit" />
-                  <TableColumn fx:id="PriceColumn" minWidth="0.0" prefWidth="45.0" text="Price" />
-                  <TableColumn fx:id="TypeColumn" minWidth="8.0" prefWidth="70.0" text="Type" />
+                  <TableColumn fx:id="PriceColumn" minWidth="0.0" prefWidth="66.0" text="Price" />
+                  <TableColumn fx:id="TypeColumn" minWidth="8.0" prefWidth="56.0" text="Type" />
                   <TableColumn fx:id="UnitTypeColumn" maxWidth="0.0" minWidth="-1.0" prefWidth="0.0" text="Unit Type" />
                </columns>
             </TableView>

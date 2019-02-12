@@ -265,7 +265,7 @@ public class CommonTypeViewController implements Initializable {
             alert.showAndWait();
             newUnit=oldUnit;
         }
-        else if(newUnit>=5){
+        else if(newUnit>5){
             Alert alert=new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText(null);
             alert.setContentText("You cannot order more than 5 Unit of an item at a time .");
