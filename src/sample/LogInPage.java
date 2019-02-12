@@ -128,7 +128,7 @@ public class LogInPage implements Initializable{
             if(NameValid&&NumValid){
 
                 try{
-                    socket=new Socket("172.26.15.172",4444);
+                    socket=new Socket("localhost",4444);
                     System.out.println("socket opened");
                     ObjectOutputStream Out=new ObjectOutputStream(socket.getOutputStream());
                     Out.writeObject(customer);
@@ -183,7 +183,7 @@ public class LogInPage implements Initializable{
 
 
        /* try{
-            socket=new Socket("172.26.15.172",4444);
+            socket=new Socket("localhost",4444);
             ObjectOutputStream Out=new ObjectOutputStream(socket.getOutputStream());
             Out.writeObject(customer);
             Out.flush();
@@ -222,7 +222,7 @@ public class LogInPage implements Initializable{
 
 
         try {
-            socket=new Socket("172.26.15.172",4444);
+            socket=new Socket("localhost",4444);
             ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream oinfromServer=new ObjectInputStream(socket.getInputStream());
             outtoServer.writeObject("Customer Count");

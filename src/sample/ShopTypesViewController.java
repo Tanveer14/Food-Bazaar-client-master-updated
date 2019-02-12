@@ -37,7 +37,7 @@ public class ShopTypesViewController implements Initializable {
     /*public void SellerButtonClicked(ActionEvent event) throws Exception{
        // String s="Password "+password.getText();
         /*try{
-            socket=new Socket("172.26.15.172",4444);
+            socket=new Socket("localhost",4444);
             ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream oi=new ObjectInputStream(socket.getInputStream());
             outtoServer.writeObject(s);
@@ -121,7 +121,7 @@ public class ShopTypesViewController implements Initializable {
         }else {
             String temp="CheckOrder "+idtext.getText();
             try{
-                socket=new Socket("172.26.15.172",4444);
+                socket=new Socket("localhost",4444);
                 ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
                 ObjectInputStream oinfromserver=new ObjectInputStream(socket.getInputStream());
                 outtoServer.writeObject(temp);
@@ -162,7 +162,7 @@ public class ShopTypesViewController implements Initializable {
         //Image icon=new Image(getClass().getResourceAsStream("icon.png"));
         //treeViewControl.setTreeview(FoodTree);
         try{
-            socket=new Socket("172.26.15.172",4444);
+            socket=new Socket("localhost",4444);
             ObjectOutputStream outtoServer=new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream oi=new ObjectInputStream(socket.getInputStream());
             String s="type list";
